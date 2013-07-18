@@ -346,10 +346,13 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       var www = p.www ? '<span>www</span><a href="' + p.www +
                         '">' + p.www.replace(/https?:\/\//, '') + '</a>' : '';
 
-      var github = p.github ? '<span>github</span><a href="' + p.github +
-          '">' + p.github.replace(/https?:\/\//, '') + '</a>' : '';
+      //var github = p.github ? '<span>github</span><a href="' + p.github +
+      //    '">' + p.github.replace(/https?:\/\//, '') + '</a>' : '';
+          
+      var drupal = p.drupal ? '<span>Drupal.org</span><a href="' + p.drupal +
+          '">' + p.drupal.replace(/https?:\/\//, '') + '</a>' : '';          
 
-      var html2 = [gplus, twitter, www, github].join('<br>');
+      var html2 = [gplus, twitter, www, drupal].join('<br>');
 
       if (dataConfigContact) {
         dataConfigContact.innerHTML = html2;

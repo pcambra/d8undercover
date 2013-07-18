@@ -2,8 +2,9 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: '#yourhashtag';
-$brand-small-icon-size: 30px;
+$social-tags: '#DdaySan2013';
+$brand-small-icon-height: 30px;
+$brand-small-icon-width: 24px;
 
 $gray-1: #e6e6e6;
 $gray-2: #a9a9a9;
@@ -35,7 +36,7 @@ $slide-border-radius: 5px;
 
 $slide-tap-area-width: 100px;
 
-$article-content-top-padding: 45px;
+$article-content-top-padding: 25px;
 
 @mixin highlight-color($color: $brand-yellow) {
   -webkit-tap-highlight-color: $color;
@@ -99,7 +100,8 @@ slides > slide {
   display: none;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 26px;
-  color: $gray-3;
+  //color: $gray-3;
+  color: black;
   //@include background(linear-gradient(white, white 85%, $gray-1));
   //background-color: white;
   width: $slide-width;
@@ -174,10 +176,11 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/google_developers_icon_128.png) no-repeat 0 50%;
-      @include background-size($brand-small-icon-size $brand-small-icon-size);
-      padding-left: $brand-small-icon-size + 10;
-      height: $brand-small-icon-size;
+      background: url(../../images/marinero_128.png) no-repeat 0 50%;
+      @include background-size($brand-small-icon-height $brand-small-icon-width);
+      padding-left: $brand-small-icon-height + 10;
+      height: $brand-small-icon-height;
+      width: $brand-small-icon-width;
       line-height: 1.9;
     }
     &:after {
@@ -193,7 +196,6 @@ slides > slide {
   &.title-slide {
     &:after {
       content: '';
-      background: url(../../images/io2012_logo.png) no-repeat 100% 50%;
       @include background-size(contain);
       position: absolute;
       bottom: $slide-top-bottom-padding;
@@ -224,6 +226,7 @@ slides > slide {
 
     p {
       margin-bottom: 1em;
+      line-height: 30px;
     }
   }
 
@@ -314,8 +317,8 @@ h1, h2, h3 {
 }
 
 h2 {
-  font-size: 45px;
-  line-height: 45px;
+  font-size: 60px;
+  line-height: 60px;
   letter-spacing: -2px;
   color: $gray-4;
 }
@@ -347,7 +350,7 @@ ul {
     }
   }
 
-  > li:before {
+  > li:not(.no-bullet):before {
     content: '\00B7';
     margin-left: -1em;
     position: absolute;
@@ -505,6 +508,10 @@ button:not(:disabled):active {
   @include column-count(2);
 }
 
+.columns-3 {
+  @include column-count(3);
+}
+
 table {
   width: 100%;
   border-collapse: -moz-initial;
@@ -589,6 +596,58 @@ article.smaller {
 
     &:before, &:after {
       font-size: 60px;
+    }
+  }
+}
+
+article.bigger {
+  p, ul {
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: 0;
+  }
+  table {
+    td, th {
+      font-size: 24px;
+    }
+  }
+  pre {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0;
+  }
+  q {
+    font-size: 45px;
+    line-height: 50px;
+
+    &:before, &:after {
+      font-size: 70px;
+    }
+  }
+}
+
+article.biggest {
+  p, ul {
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: 0;
+  }
+  table {
+    td, th {
+      font-size: 34px;
+    }
+  }
+  pre {
+    font-size: 35px;
+    line-height: 30px;
+    letter-spacing: 0;
+  }
+  q {
+    font-size: 50px;
+    line-height: 58px;
+
+    &:before, &:after {
+      font-size: 80px;
     }
   }
 }
@@ -882,7 +941,7 @@ article.smaller {
 }
 
 aside.gdbar {
-  height: 97px;
+  height: 180px;
   width: 215px;
   position: absolute;
   left: -1px;
@@ -911,11 +970,11 @@ aside.gdbar {
   }
 
   img {
-    width: 85px;
-    height: 85px;
+    width: 200px;
+    height: 162px;
     position: absolute;
     right: 0;
-    margin: 8px 15px;
+    margin: 10px 0px;
   }
 }
 
@@ -963,7 +1022,7 @@ aside.gdbar {
     border-bottom: none;
   }
   span {
-    width: 115px;
+    width: 180px;
     display: inline-block;
   }
 }
@@ -1080,4 +1139,16 @@ aside.gdbar {
   pre, code {
     font-family: monospace !important;
   }
+}
+
+/* Custom classes */
+.bg-read {
+  background-color: $gray-3;
+  opacity: 0.9;
+  padding: 15px;
+}
+
+.portrait {
+  height: 180px;
+  width: 180px;  
 }
