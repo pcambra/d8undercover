@@ -3,7 +3,7 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'Drupal 8: Undercover initiatives',
     //subtitle: 'Subtitle Goes Here',
-    eventTitle: 'DrupalDay Santander 2013',
+    eventTitle: 'Drupal Brighton September 2013',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -13,14 +13,14 @@ var SLIDE_CONFIG = {
     fonts: [
       'Open Sans:regular,semibold,italic,italicsemibold',
       'Source Code Pro'
-    ],
+    ]
     //theme: ['mytheme'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
   },
 
   // Author information
   presenters: [{
     name: 'Pedro Cambra',
-//    company: 'Job Title, Google',
+    company: 'Drupal dreamer at Ymbra',
 //    gplus: 'http://plus.google.com/1234567890',
     twitter: '@pcambra',
     www: 'http://cambrico.net',

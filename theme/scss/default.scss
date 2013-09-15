@@ -2,8 +2,8 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: '#DdaySan2013';
-$brand-small-icon-height: 30px;
+$social-tags: "#drupalBrighton";
+$brand-small-icon-height: 24px;
 $brand-small-icon-width: 24px;
 
 $gray-1: #e6e6e6;
@@ -30,7 +30,7 @@ $brand-green-secondary2: #009f5d;
 $slide-width: 900px;
 $slide-height: 700px;
 $slide-width-widescreen: 1100px;
-$slide-top-bottom-padding: 40px;
+$slide-top-bottom-padding: 50px;
 $slide-left-right-padding: 60px;
 $slide-border-radius: 5px;
 
@@ -176,7 +176,7 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/marinero_128.png) no-repeat 0 50%;
+      background: url(../../images/druplicon_128.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-height $brand-small-icon-width);
       padding-left: $brand-small-icon-height + 10;
       height: $brand-small-icon-height;
@@ -970,11 +970,11 @@ aside.gdbar {
   }
 
   img {
-    width: 200px;
-    height: 162px;
+    width: 131px;
+    height: 150px;
     position: absolute;
     right: 0;
-    margin: 10px 0px;
+    margin: 10px 40px;
   }
 }
 
@@ -1034,7 +1034,7 @@ aside.gdbar {
       display: none !important;
     }
   }
-  
+
   slides {
     slide {
       &.backdrop {
@@ -1150,5 +1150,5 @@ aside.gdbar {
 
 .portrait {
   height: 180px;
-  width: 180px;  
+  width: 180px;
 }

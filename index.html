@@ -27,7 +27,7 @@ URL: https://code.google.com/p/io-2012-slides
 <slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/marinero.png"></aside>
+    <aside class="gdbar"><img src="images/druplicon.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -44,79 +44,79 @@ URL: https://code.google.com/p/io-2012-slides
       <ul class="build fade">
         <li><b class="blue3">New</b> to Drupal 8</li>
         <li><b class="blue3">Focus</b> on important topics</li>
-        <li>Initiative <b class="blue3">leaders</b> appointed by Dries</li>       
-        <li>Organise better the community/volunteers: <b class="blue3">Birds of a feather flock together</b></li>     
+        <li>Initiative <b class="blue3">leaders</b> appointed by Dries</li>
+        <li>Organise better the community/volunteers: <b class="blue3">Birds of a feather flock together</b></li>
         <li>Better <b class="blue3">visibility and reach</b></li>
       </ul>
-    </article>    
-  </slide>    
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
-      <h3>What's the status?</h3>      
+      <h3>What's the status?</h3>
     </hgroup>
     <article class="centered">
-  	  <img src="images/initiatives.jpg" class="reflect">
+      <img src="images/initiatives.jpg" class="reflect">
     </article>
-  </slide> 
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
-      <h3>Who's behind them?</h3>      
+      <h3>Who's behind them?</h3>
     </hgroup>
     <article>
       <div class="columns-2">
         <ul>
           <li><img src="images/vdc.png"></li>
           <li><img src="images/cmi.png"></li>
-          <li><img src="images/d8mi.png"></li>                    
+          <li><img src="images/d8mi.png"></li>
         </ul>
         <ul>
           <li><img src="images/scotch.png"></li>
           <li><img src="images/wscci.png"></li>
-          <li><img src="images/mobile.png"></li>                    
+          <li><img src="images/mobile.png"></li>
         </ul>
-      </div>      
+      </div>
     </article>
-  </slide>        
+  </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/snake.jpg)">
     <hgroup>
       <h2 class="white">Under the hood</h2>
     </hgroup>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>WYSIWYG in core</h2>
     </hgroup>
     <article class="centered">
   	  <img src="images/wysiwyg.jpg" class="reflect">
-    </article>    
-  </slide>    
-  
+    </article>
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/toomuchwysiswyg.jpg)">
-  </slide>   
-  
+  </slide>
+
   <slide>
     <article class="centered">
-  	  <img src="images/inline_editing.jpg">
-    </article>   
-    <footer class="source">Source: <a href="http://buytaert.net/wysiwyg-and-in-place-editing-for-structured-content">http://buytaert.net/wysiwyg-and-in-place-editing-for-structured-content</a></footer> 
-  </slide>      
-  
+      <img src="images/inline_editing.jpg">
+    </article>
+    <footer class="source">Source: <a href="http://buytaert.net/wysiwyg-and-in-place-editing-for-structured-content">http://buytaert.net/wysiwyg-and-in-place-editing-for-structured-content</a></footer>
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/twig.jpg)">
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Before Twig</h2>
       <h3>block.tpl.php</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="phptemplate">  
+      <pre class="prettyprint" data-lang="phptemplate">
 &lt;?php if (isset($block_html_id)): ?&gt;
   &lt;div id="&lt;?php print $block_html_id; ?&gt;" &lt;?php print $attributes; ?&gt;&gt;
 &lt;?php else: ?&gt;
@@ -134,14 +134,14 @@ URL: https://code.google.com/p/io-2012-slides
    	  </pre>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>After Twig</h2>
       <h3>block.html.twig</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="twig">   
+      <pre class="prettyprint" data-lang="twig">
 &lt;div{{ attributes }}&gt;
   {{ title_prefix }}
   {% if label %}
@@ -152,18 +152,18 @@ URL: https://code.google.com/p/io-2012-slides
   &lt;div{{ content_attributes }}&gt;
     {{ content }}
   &lt;/div&gt;
-&lt;/div&gt; 
+&lt;/div&gt;
    	  </pre>
     </article>
     <footer class="source">Extra clean up will happen in this issue <a href="https://drupal.org/node/1972122">https://drupal.org/node/1972122</a></footer>
   </slide>
-  
+
   <slide class="nobackground">
     <article class="centered flexbox vleft auto-fadein">
       <h2 class="black">&quot;Disabled modules are <br/> broken beyond repair&quot;</h2>
     </article>
   </slide>
-         
+
   <slide class="fill nobackground" style="background-image: url(images/ecce.jpg)">
   </slide>
 
@@ -174,33 +174,34 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul class="build">
-      	<li>Disabling a module means disabling its interfaces (user/hooks/etc)</li>
-      	<li>Data is kept as it was when the module was disabled: <b class="blue3">Data integrity risk</b></li>
-      	<li>It worked well in the past, <b class="blue3">when life was simpler</b></li>
-      	<li>Removed hook_enable(), hook_disable(), hook_modules_enabled() & hook_modules_disabled()</li>
-      	<li>All installed modules are <b class="blue3">always installed/enabled</b> and always loaded</li>      	      	      	      	
-      	<li>Uninstall: Remove entry from system.module:enabled config, data and clear cache</li>
+        <li>Disabling a module means disabling its interfaces (user/hooks/etc)</li>
+        <li>Data is kept as it was when the module was disabled: <b class="blue3">Data integrity risk</b></li>
+        <li>It worked well in the past, <b class="blue3">when life was simpler</b></li>
+        <li>Removed module_disable() and enable/disable hooks</li>
+        <li>All installed modules are <b class="blue3">always installed/enabled</b> and always loaded</li>
+        <li>hook_modules_preinstall() will check and ensure uninstall consistency</li>
+        <li><b>Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
       </ul>
-    </article>    
-    
-    <footer class="source">More info: <a href="https://drupal.org/node/1883658">https://drupal.org/node/1883658</a> & <a href="https://drupal.org/node/1199946">https://drupal.org/node/1199946</a></footer>     
-  </slide>  
-  
+    </article>
+
+    <footer class="source">More info: <a href="https://drupal.org/node/1883658">https://drupal.org/node/1883658</a> & <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a></footer>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Actions are now plugins!</h3>
     </hgroup>
-    <article>
+    <article class="bigger">
       <ul class="build fade">
         <li>Action module in Drupal 7 didn't add a lot of value</li>
         <li>Actions are now <b class="blue3">annotated plugins</b></li>
         <li>New <b class="blue3">configured actions</b> without user input: config entities</li>
         <li>Action module will become just a user interface</li>
-        <li>Simplified <b class="blue3">Views Bulk Operations in core</b>!</li>                        
-      </ul>      
-    </article>              
-    <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>     
+        <li>Simplified <b class="blue3">Views Bulk Operations in core</b>!</li>
+      </ul>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
   </slide>
 
   <slide>
@@ -209,7 +210,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Example: action plugin interface</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="php">       
+      <pre class="prettyprint" data-lang="php">
 interface ConfigurableActionInterface extends ActionInterface {
   // Returns this plugin's configuration.
   public function getConfiguration();
@@ -222,19 +223,19 @@ interface ConfigurableActionInterface extends ActionInterface {
 }
   	  </pre>
     </article>
-  </slide>  
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Example: configured action</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="php">       
+      <pre class="prettyprint" data-lang="php">
   $action = entity_create('action', array(
     'id' => 'user_add_role_action.' . $role->id(),
     'type' => 'user',
-    'label' => t('Add the @label role to the selected users', 
+    'label' => t('Add the @label role to the selected users',
     	array('@label' => $role->label())),
     'configuration' => array(
       'rid' => $role->id(),
@@ -244,8 +245,8 @@ interface ConfigurableActionInterface extends ActionInterface {
   $action->save();
   	  </pre>
     </article>
-  </slide>  
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>& many more!</h2>
@@ -255,22 +256,22 @@ interface ConfigurableActionInterface extends ActionInterface {
       <li>New directory structure</li>
       <li>Class autoloader: PSR-0</li>
       <li>Mongo DB support</li>
-	  <li>Menus as entities</li>  
+      <li>Menus as entities</li>
       <li>UX improvements on content creation</li>
-	  <li>Style guide</li>	   
-	  <li>Tour module</li>     
-	  <li>New install theme</li>	    	  
-	  <li>Removed support for IE6-IE8</li>
+      <li>Style guide</li>
+      <li>Tour module</li>
+      <li>New install theme</li>
+      <li>Removed support for IE6-IE8</li>
       </ul>
     </article>
-  </slide>   
-  
+  </slide>
+
   <slide class="nobackground">
     <article class="centered flexbox vleft auto-fadein">
       <h2 class="black">Now, let's talk about fields (& friends)</h2>
     </article>
-  </slide>    
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>New field types</h2>
@@ -288,45 +289,46 @@ interface ConfigurableActionInterface extends ActionInterface {
       	    <li>Email</li>
       	    <li>Telephone</li>
       	  </ul>
-      	</li>      	      	      	
+      	</li>
       </ul>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Entity reference</h2>
     </hgroup>
     <article class="centered">
   	  <img src="images/entityreference.png">
-    </article>   
+    </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Date and time</h2>
     </hgroup>
     <article class="centered">
   	  <img src="images/date.png">
-    </article>       
+    </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Link</h2>
     </hgroup>
     <article class="centered">
-  	  <img src="images/link.png">
+      <img src="images/link.png">
     </article>
-    <br/>       
+    <br/>
     <article class="build bigger">
-  	  <ul>
-  	  	<li>No internal URL's (e.g. node/1)</li>
-  	  	<li>No attributes (so far)</li>
-  	  </ul>
-    </article>       
-  </slide>  
-    
+      <ul>
+        <li>No internal URL's (e.g. node/1)</li>
+        <li>No attributes (so far)</li>
+      </ul>
+    </article>
+      <footer class="source">More info: <a href="https://drupal.org/node/501434">https://drupal.org/node/501434</a></footer>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Email & telephone</h2>
@@ -338,20 +340,20 @@ interface ConfigurableActionInterface extends ActionInterface {
 		<li>no anti-spam support</li>
 		<li>tel:+32 123 321 123</li>
   	  </ul>
-    </article>     
-  </slide> 
-  
-  
+    </article>
+  </slide>
+
+
   <slide class="nobackground">
-  </slide>  
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Hidden widget</h2>
     </hgroup>
     <article class="centered">
   	  <img src="images/hidden.png">
-    </article>   
+    </article>
     <br/>
     <article class="bigger">
   	  <ul class="build">
@@ -366,12 +368,12 @@ interface ConfigurableActionInterface extends ActionInterface {
    	      </ul>
    	    </li>
   	  </ul>
-    </article>     
-  </slide> 
-  
+    </article>
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/tombstone.jpg)">
-  </slide>     
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Fields & CMI</h2>
@@ -381,18 +383,18 @@ interface ConfigurableActionInterface extends ActionInterface {
   	  	<li>Field & instance definitions: <b class="blue3">YAML files</b></li>
   	  	<li><b class="blue3">Human readable</b> (no more serialised storage)</li>
   	  	<li>Can be <b class="blue3">deployed</b> between environments</li>
-  	  	<li>Deleted fields and instances are <b class="blue3">kept in "state"</b> until data is purged</li>  	  	  	  	
+  	  	<li>Deleted fields and instances are <b class="blue3">kept in "state"</b> until data is purged</li>
   	  </ul>
-    </article>       	  	
+    </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Field definition</h2>
       <h3>field.field.body.yml</h3>
     </hgroup>
     <article class="smaller">
-      <pre class="prettyprint" data-lang="yaml">   
+      <pre class="prettyprint" data-lang="yaml">
 <b>id: body</b>
 <b>uuid: 7a39e1c1-9ed8-46a6-8c35-53603518dab9</b>
 status: '1'
@@ -410,18 +412,18 @@ storage:
   active: '1'
 locked: '0'
 cardinality: '1'
-translatable: '0'      
+translatable: '0'
   	  </pre>
     </article>
-  </slide>     
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Field instance definition</h2>
       <h3>field.node.article.body.yml</h3>
     </hgroup>
     <article class="smaller">
-      <pre class="prettyprint" data-lang="yaml">   
+      <pre class="prettyprint" data-lang="yaml">
 <b>id: node.article.body</b>
 uuid: 12fa357f-45fb-4c58-b600-dbb984601811
 status: '1'
@@ -440,21 +442,21 @@ default_value_function: ''
 field_type: text_with_summary</b>
   	  </pre>
     </article>
-  </slide>          
-  
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/zebra.jpg)">
     <article class="centered flexbox vleft build">
       <h2 class="white bg-read">Don't hack your active config!</h2>
     </article>
-  </slide>      
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>CRUD API changes for fields</h2>
     </hgroup>
     <article>
       <p>Drupal 7 has field_create_field(), field_create_instance(), update, delete and dozens of other field API crud functions and hooks.</p>
-      <pre class="prettyprint" data-lang="Drupal 8"> 
+      <pre class="prettyprint" data-lang="Drupal 8">
 <b>$field = entity_create('field_config', array(</b>
   'id' => 'field_image',
   'type' => 'image',
@@ -465,33 +467,33 @@ $field->save();
   'field_id' => 'field_image',
   'entity_type' => 'node',
   'bundle' => 'article',
-))->save();      
+))->save();
 	  </pre>
-    </article>       	  	
-  </slide> 
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>CRUD API changes for fields</h2>
       <h3>Update and delete fields</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP"> 
+      <pre class="prettyprint" data-lang="PHP">
 $field = entity_load('field_image');
 $field->cardinality = 3;
 $field->settings['foo'] = 'bar';
 <b>$field->save();
- 
+
 $field->delete();</b>
 
 +
 hook_entity_save()
 hook_entity_delete()
-...   
+...
 	  </pre>
-    </article>       	  	
-  </slide>    
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>EntityDisplay</h2>
@@ -504,21 +506,21 @@ hook_entity_delete()
         <li>3rd party (Display suite, Field groups): in their own tables...</li>
         <li>Separate alter hooks:</li>
         <ul>
-          <li>hook_field_display_properties_alter() - per field</li>   
-          <li>hook_field_extra_field_alter() - per "extra field"</li>                                          
+          <li>hook_field_display_properties_alter() - per field</li>
+          <li>hook_field_extra_field_alter() - per "extra field"</li>
         </ul>
-        <li>other components: ??</li>           
-      </ul> 
+        <li>other components: ??</li>
+      </ul>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>EntityDisplay as a ConfigEntity</h2>
-      <h3>entity.display.node.article.default.yml:</h3>      
+      <h3>entity.display.node.article.default.yml:</h3>
     </hgroup>
     <article class="smaller">
-      <pre class="prettyprint" data-lang="PHP"> 
+      <pre class="prettyprint" data-lang="PHP">
 id: node.article.default
 uuid: 4ac7c6b0-717e-43bd-8b04-4ad1e3f32429
 targetEntityType: node
@@ -537,15 +539,15 @@ content:
       image_link: ''
     weight: '-1'</b>
 	  </pre>
-    </article>       	  	
-  </slide> 
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Using EntityDisplays in code</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP"> 
+      <pre class="prettyprint" data-lang="PHP">
 $display = entity_get_display($entity_type, $bundle, $view_mode);
 $display->setComponent('body', array(
   'type' => 'text_default',
@@ -553,9 +555,9 @@ $display->setComponent('body', array(
 ))
 -> save();
 	  </pre>
-    </article>    	  
-    <article class="build">	  
-      <pre class="prettyprint" data-lang="PHP"> 
+    </article>
+    <article class="build">
+      <pre class="prettyprint" data-lang="PHP">
 // During entity_view():
 hook_entity_display_alter(EntityDisplay $display);
 hook_entity_view(EntityInterface $entity,
@@ -563,29 +565,29 @@ hook_entity_view(EntityInterface $entity,
 
 $options = $display->getComponent('field_image');
 	  </pre>
-    </article>       	  	
-  </slide>                                   
-  
+    </article>
+  </slide>
+
   <slide class="nobackground">
     <hgroup>
       <h2>Configurable form modes</h2>
-    </hgroup>  
+    </hgroup>
     <article class="centered flexbox vleft build fadein">
       <q>
 If you aren't happy <br/>
-to see core adding form modes <br/> 
+to see core adding form modes <br/>
 then we can’t be friends
       </q>
       <p><a href="http://twitter.com/drupalhaikus">@drupalhaikus</a></p>
     </article>
-  </slide>                   
-  
+  </slide>
+
   <slide>
     <article>
       <iframe data-src="http://drupal8.local/admin/config/people/accounts/form-display"></iframe>
     </article>
-  </slide>  
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Fields & Plugins</h2>
@@ -595,24 +597,24 @@ then we can’t be friends
       <ul class="build">
       	<li>In Drupal 7, they are based in hooks or magic callbacks, such as hook_field_validate()</li>
       	<li>Field storage backends - critical to swap to entity based storage</li>
-      	<li><b class="blue3">Drupal 8</b>: 
+      	<li><b class="blue3">Drupal 8</b>:
       	  <ul>
       	    <li>Plugin API</li>
       	    <li>Classes</li>
       	    <li>Inheritance</li>
       	  </ul>
-      	</li>      	      	
+      	</li>
       </ul>
     </article>
-  </slide> 
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Annotated plugins</h2>
       <h3>mymodule/lib/Plugin/field/widget/MyWidget.php</h3>
-    </hgroup>  	
+    </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">     
+      <pre class="prettyprint" data-lang="PHP">
 /**
  * @Widget(
  *   id = "mymodule_widget",
@@ -625,38 +627,38 @@ then we can’t be friends
  *   }</b>
  * )
  */
-class MyWidget extends WidgetBase {      
+class MyWidget extends WidgetBase {
 	  </pre>
-    </article>        
+    </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Widgets</h2>
       <h3>mymodule/lib/Plugin/field/widget/MyWidget.php</h3>
-    </hgroup>  	
+    </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">     
+      <pre class="prettyprint" data-lang="PHP">
 class MyWidget extends WidgetBase {
 
  public function <b>settingsForm</b>(array $form, array &$form_state);
  public function <b>formElement</b>(array $items, array &$form, array &$form_state);
- public function <b>errorElement</b>(array $element, array $error, 
+ public function <b>errorElement</b>(array $element, array $error,
  								array $form, array &$form_state);
  public function <b>massageFormValues</b>(array $values, array $form, array &$form_state);
- 
-}      
+
+}
 	  </pre>
-    </article>        
-  </slide>  
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Formatters</h2>
       <h3>mymodule/lib/Plugin/field/formatter/MyFormatter.php</h3>
-    </hgroup>  	
+    </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">     
+      <pre class="prettyprint" data-lang="PHP">
 class MyFormatter extends FormatterBase {
 
   public function <b>settingsForm</b>(array $form, array &$form_state);
@@ -667,98 +669,98 @@ class MyFormatter extends FormatterBase {
 }
 
 	  </pre>
-    </article>        
-  </slide>   
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Field types</h2>
-    </hgroup>  	
+    </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">     
+      <pre class="prettyprint" data-lang="PHP">
 class TextFieldItem extends ConfigFieldItemBase {
 
  public static function <b>schema</b>(Field $field);
  public function <b>settingsForm</b>(array $form, array &$form_state);
  public function <b>instanceSettingsForm</b>(array $form, array &$form_state);
- 
+
  public function validate() / presave() / delete() ...
 
 }
 	  </pre>
-    </article>        
-  </slide>      
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
       <h2>Everything is a field!</h2>
       <h3>Fields former known as properties</h3>
     </hgroup>
-    <article class="biggest">    
+    <article class="biggest">
       <ul class="build">
         <li>Every entity property on an entity is a "field"</li>
         <li>Base fields: $node->nid, $node->title, $node->uuid</li>
         <li>Existence established by code</li>
-        <li>Stored in the entity (base) table (sort of)</li>                      
+        <li>Stored in the entity (base) table (sort of)</li>
       </ul>
-    </article>       
-  </slide> 
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Everything is still being a field!</h2>
       <h3>Configurable fields</h3>
     </hgroup>
-    <article class="bigger">    
+    <article class="bigger">
       <ul class="build">
         <li>Configurable fields (aka "Field API" fields): $node->body, $user->field_custom...</li>
         <li>Existence established by config (CMI files)</li>
         <li>Stored in ad-hoc storage tables as in Drupal 7</li>
-        <li>Managed by field.module</li>                      
+        <li>Managed by field.module</li>
         <li>"Fieldable entity types" become "extensible entity types"</li>
       </ul>
-    </article>       
-  </slide>   
-  
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Entity Field API</h2>
     </hgroup>
     <article>
 	  <p>Field values are objects</p>
-      <pre class="prettyprint" data-lang="PHP">  
+      <pre class="prettyprint" data-lang="PHP">
 $node->field_tags instanceof FieldInterface
-$node->field_tags[0] instanceof FieldItemInterface      
+$node->field_tags[0] instanceof FieldItemInterface
       </pre>
 	  <p>Improved Developer experience</p>
-      <pre class="prettyprint" data-lang="PHP">  
+      <pre class="prettyprint" data-lang="PHP">
 $node->body[LANGUAGE_NONE][0]['value']
-         is now 
+         is now
 $node->body->value
 // or
-$node->body[0]->value    
+$node->body[0]->value
       </pre>
     </article>
-  </slide> 
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Field translation</h2>
       <h3>It uses the default: $entity->language()</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">  
+      <pre class="prettyprint" data-lang="PHP">
 $translation = $node->getTranslation('de');
 // Access and update translated fields as usual:
 $german_title = $translation->title->value;
 $translation->title->value = 'Drupal spricht viele Sprachen!';
 
 $node instanceof NodeInterface
-$translation instanceof NodeInterface 
+$translation instanceof NodeInterface
       </pre>
     </article>
-  </slide>   
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Computed fields</h2>
@@ -767,19 +769,19 @@ $translation instanceof NodeInterface
 	  <ul class="build">
 	    <li>Same concept as computed fields in Entity API for Drupal 7</li>
 	    <li>$comment->is_new->value</li>
-	    <li>class FieldNewValue computes it on access </li>	    
+	    <li>class FieldNewValue computes it on access </li>
 	    <li>Computed fields can be defined via hook_entity_field_info() or hook_comment_field_info()</li>
 	  </ul>
     </article>
-  </slide> 
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Know your fields: Metadata</h2>
       <h3>Information about field, field items and field item values</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="PHP">  
+      <pre class="prettyprint" data-lang="PHP">
 $entity->getFieldDefinitions();
 
 foreach ($entity as $field) {
@@ -792,8 +794,8 @@ foreach ($entity as $field) {
 }
       </pre>
     </article>
-  </slide>       
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Introducing TypedData</h2>
@@ -806,16 +808,16 @@ foreach ($entity as $field) {
         <li>Field types</li>
         <li>Entity types</li>
       </ul>
-      <pre class="prettyprint" data-lang="PHP">     
+      <pre class="prettyprint" data-lang="PHP">
 $properties['title'] = array(
   'label' => t('Title'),
   'description' => t('The title of this node, always treated as non-markup plain text.'),
   'type' => 'string_field',
-);    
-      </pre>    
+);
+      </pre>
     </article>
-  </slide>       
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>There is even more!</h2>
@@ -826,38 +828,38 @@ $properties['title'] = array(
       <li>Field placehoders for defaults/examples</li>
       <li>Image field multiple uploads</li>
       <li>Drag & drop image upload support</li>
-	  <li>User picture is a field</li>  
+	  <li>User picture is a field</li>
       <li>Field translation sync</li>
-	  <li>More granular permissions on Field UI</li>	   
+	  <li>More granular permissions on Field UI</li>
       </ul>
     </article>
-  </slide>    
-  
+  </slide>
+
   <slide>
     <hgroup>
       <h2>In the dock!</h2>
       <h3>Without these people (and many more) this wouldn't have been possible</h3>
-    </hgroup>      
+    </hgroup>
     <article>
       <div class="columns-3">
         <ul>
-          <li class="no-bullet"><img class="portrait" src="images/swentel.png"><p><a href="https://drupal.org/user/107403">swentel</a></p></li>        
+          <li class="no-bullet"><img class="portrait" src="images/swentel.png"><p><a href="https://drupal.org/user/107403">swentel</a></p></li>
           <li class="no-bullet"><img class="portrait" src="images/yched.jpg"><p><a href="https://drupal.org/user/39567">yched</a></p></li>
         </ul>
         <ul>
-          <li class="no-bullet"><img class="portrait" src="images/amateescu.jpg"><p><a href="https://drupal.org/user/729614">amateescu</a></p></li>                            
-          <li class="no-bullet"><img class="portrait" src="images/fago.png"><p><a href="https://drupal.org/user/16747">fago</a></p></li>                              
+          <li class="no-bullet"><img class="portrait" src="images/amateescu.jpg"><p><a href="https://drupal.org/user/729614">amateescu</a></p></li>
+          <li class="no-bullet"><img class="portrait" src="images/fago.png"><p><a href="https://drupal.org/user/16747">fago</a></p></li>
         </ul>
         <ul>
           <li class="no-bullet"><img class="portrait" src="images/fubhy.png"><p><a href="https://drupal.org/user/761344">fubhy</a></p></li>
           <li class="no-bullet"><img class="portrait" src="images/tim.png"><p><a href="https://drupal.org/user/241634">tim.plunkett</a></p></li>
-        </ul>    
-    
+        </ul>
+
     </article>
-  </slide>      
+  </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/marinero.png"></aside>
+    <aside class="gdbar right"><img src="images/druplicon.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>
