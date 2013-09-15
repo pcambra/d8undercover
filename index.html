@@ -473,13 +473,13 @@ field_type: text_with_summary</b>
     <article>
       <p>Drupal 7 has field_create_field(), field_create_instance(), update, delete and dozens of other field API crud functions and hooks.</p>
       <pre class="prettyprint" data-lang="Drupal 8">
-<b>$field = entity_create('field_config', array(</b>
+<b>$field = entity_create('field_entity', array(</b>
   'id' => 'field_image',
   'type' => 'image',
   'cardinality' => 1,
 ));
 $field->save();
-<b>entity_create('field_instance_config', array(</b>
+<b>entity_create('field_instance', array(</b>
   'field_id' => 'field_image',
   'entity_type' => 'node',
   'bundle' => 'article',
@@ -694,7 +694,8 @@ class MyFormatter extends FormatterBase {
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="PHP">
-class TextFieldItem extends ConfigFieldItemBase {
+class TextItem extends TextItemBase {
+(abstract class TextItemBase extends ConfigFieldItemBase)
 
  public static function <b>schema</b>(Field $field);
  public function <b>settingsForm</b>(array $form, array &$form_state);
@@ -705,6 +706,7 @@ class TextFieldItem extends ConfigFieldItemBase {
 }
 	  </pre>
     </article>
+    <footer class="source">Change notice: <a href="https://drupal.org/node/2064123">https://drupal.org/node/2064123</a></footer>
   </slide>
 
   <slide>
