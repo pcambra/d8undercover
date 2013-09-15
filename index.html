@@ -93,7 +93,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>WYSIWYG in core</h2>
     </hgroup>
     <article class="centered">
-  	  <img src="images/wysiwyg.jpg" class="reflect">
+      <img src="images/wysiwyg.jpg" class="reflect">
     </article>
   </slide>
 
@@ -180,7 +180,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Removed module_disable() and enable/disable hooks</li>
         <li>All installed modules are <b class="blue3">always installed/enabled</b> and always loaded</li>
         <li>hook_modules_preinstall() will check and ensure uninstall consistency</li>
-        <li><b>Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
+        <li><b class="blue3">Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
       </ul>
     </article>
 
@@ -243,7 +243,7 @@ interface ConfigurableActionInterface extends ActionInterface {
     'plugin' => 'user_add_role_action',
   ));
   $action->save();
-  	  </pre>
+      </pre>
     </article>
   </slide>
 
@@ -273,9 +273,9 @@ interface ConfigurableActionInterface extends ActionInterface {
       </hgroup>
       <article class="bigger">
           <ul class="build">
-              <li>It might have been handy but at a <b>high price</b></li>
-              <li><b>Security</b> & <b>performance</b> could be easily compromised by non savy users</li>
-              <li>Upgrade between versions got harder as PHP code could have been <b>anywhere</b></li>
+              <li>It might have been handy but at a <b class="blue3">high price</b></li>
+              <li><b class="blue3">Security & performance</b> could be easily compromised by non savy users</li>
+              <li>Upgrade between versions got harder as PHP code could have been <b class="blue3">ANYWHERE</b></li>
               <li>For those risking it, there's a module for that! <a href="http://drupal.org/project/php">http://drupal.org/project/php</a></li>
           </ul>
       </article>
@@ -295,17 +295,17 @@ interface ConfigurableActionInterface extends ActionInterface {
     </hgroup>
     <article class="bigger">
       <ul class="build">
-      	<li>New goodies for site builders. Out of the box</li>
-      	<li>Simplified ports of the equivalent Drupal 7 modules.</li>
-      	<li><b class="blue3">Snowman</b> is coming to town!</li>
-      	<li>New field types:
-      	  <ul>
-      	    <li>Entity reference</li>
-      	    <li>Date (and time)</li>
-      	    <li>Email</li>
-      	    <li>Telephone</li>
-      	  </ul>
-      	</li>
+        <li>New goodies for site builders. Out of the box</li>
+        <li>Simplified ports of the equivalent Drupal 7 modules.</li>
+        <li><b class="blue3">Snowman</b> is coming to town!</li>
+        <li>New field types:
+          <ul>
+            <li>Entity reference</li>
+            <li>Date (and time)</li>
+            <li>Email</li>
+            <li>Telephone</li>
+          </ul>
+        </li>
       </ul>
     </article>
   </slide>
@@ -315,7 +315,7 @@ interface ConfigurableActionInterface extends ActionInterface {
       <h2>Entity reference</h2>
     </hgroup>
     <article class="centered">
-  	  <img src="images/entityreference.png">
+      <img src="images/entityreference.png">
     </article>
   </slide>
 
@@ -324,7 +324,7 @@ interface ConfigurableActionInterface extends ActionInterface {
       <h2>Date and time</h2>
     </hgroup>
     <article class="centered">
-  	  <img src="images/date.png">
+      <img src="images/date.png">
     </article>
   </slide>
 
@@ -351,11 +351,11 @@ interface ConfigurableActionInterface extends ActionInterface {
     </hgroup>
     <article class="flexbox vleft biggest">
       <p><b class="blue3">Simplified version</b> of both email and telephone modules for Drupal 7</p>
-  	  <ul class="build">
-  	  	<li>e-mail validation</li>
-		<li>no anti-spam support</li>
-		<li>tel:+32 123 321 123</li>
-  	  </ul>
+      <ul class="build">
+        <li>e-mail validation</li>
+        <li>no anti-spam support</li>
+        <li>tel:+32 123 321 123</li>
+      </ul>
     </article>
   </slide>
 
@@ -368,22 +368,22 @@ interface ConfigurableActionInterface extends ActionInterface {
       <h2>Hidden widget</h2>
     </hgroup>
     <article class="centered">
-  	  <img src="images/hidden.png">
+      <img src="images/hidden.png">
     </article>
     <br/>
     <article class="bigger">
-  	  <ul class="build">
-		<li>Added by default on all widget types</li>
-		<li>It is not a 'hidden' input type</li>
-		<li>Renders nothing</li>
-		<li>Preserves values when saving entity forms</li>
-		<li>Use cases:
-		  <ul>
-		    <li>Programmatically save a value</li>
-		    <li>Use rules or custom PHP</li>
-   	      </ul>
-   	    </li>
-  	  </ul>
+      <ul class="build">
+        <li>Added by default on all widget types</li>
+        <li>It is not a 'hidden' input type</li>
+        <li>Renders nothing</li>
+        <li>Preserves values when saving entity forms</li>
+        <li>Use cases:
+          <ul>
+            <li>Programmatically save a value</li>
+            <li>Use rules or custom PHP</li>
+          </ul>
+        </li>
+      </ul>
     </article>
   </slide>
 
@@ -474,6 +474,7 @@ field_type: text_with_summary</b>
       <p>Drupal 7 has field_create_field(), field_create_instance(), update, delete and dozens of other field API crud functions and hooks.</p>
       <pre class="prettyprint" data-lang="Drupal 8">
 <b>$field = entity_create('field_entity', array(</b>
+  'entity_type' => 'node',
   'id' => 'field_image',
   'type' => 'image',
   'cardinality' => 1,
@@ -506,8 +507,25 @@ $field->delete();</b>
 hook_entity_save()
 hook_entity_delete()
 ...
-	  </pre>
+      </pre>
     </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Fields now bound to an entity type</h2>
+      <h3>Soft on the outside, tough on the inside</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul class="build fade">
+        <li>Fields are <b class="blue3">shareable between bundles</b> but <b class="blue3">attached to a specific entity type</b></li>
+        <li>The entity handles the CRUD operation, <b class="blue3">field storage backends are gone</b></li>
+        <li><b class="blue3">Fields can share name on different entity types</b>, but their settings are independent</li>
+        <li>The field id now includes the entity type: field->id() is now <b class="blue3">"$entity_type.$name"</b> instead of $field_name</li>
+        <li>Field attach API parts are gone</li>
+      </ul>
+    </article>
+    <footer class="source">Change notice: <a href="https://drupal.org/node/2078765">https://drupal.org/node/2078765</a></footer>
   </slide>
 
   <slide>
@@ -570,7 +588,7 @@ $display->setComponent('body', array(
   'weight' => 0,
 ))
 -> save();
-	  </pre>
+   </pre>
     </article>
     <article class="build">
       <pre class="prettyprint" data-lang="PHP">
@@ -611,15 +629,15 @@ then we can’t be friends
     </hgroup>
     <article class="bigger">
       <ul class="build">
-      	<li>In Drupal 7, they are based in hooks or magic callbacks, such as hook_field_validate()</li>
-      	<li>Field storage backends - critical to swap to entity based storage</li>
-      	<li><b class="blue3">Drupal 8</b>:
-      	  <ul>
-      	    <li>Plugin API</li>
-      	    <li>Classes</li>
-      	    <li>Inheritance</li>
-      	  </ul>
-      	</li>
+        <li>In Drupal 7, they are based in hooks or magic callbacks, such as hook_field_validate()</li>
+        <li>Field storage backends - critical to swap to entity based storage</li>
+        <li><b class="blue3">Drupal 8</b>:
+          <ul>
+            <li>Plugin API</li>
+            <li>Classes</li>
+            <li>Inheritance</li>
+          </ul>
+        </li>
       </ul>
     </article>
   </slide>
@@ -664,7 +682,7 @@ class MyWidget extends WidgetBase {
  public function <b>massageFormValues</b>(array $values, array $form, array &$form_state);
 
 }
-	  </pre>
+      </pre>
     </article>
   </slide>
 
@@ -683,8 +701,7 @@ class MyFormatter extends FormatterBase {
   public function <b>view</b>(EntityInterface $entity, $langcode, array $items);
 
 }
-
-	  </pre>
+      </pre>
     </article>
   </slide>
 
@@ -702,9 +719,7 @@ class TextItem extends TextItemBase {
  public function <b>instanceSettingsForm</b>(array $form, array &$form_state);
 
  public function validate() / presave() / delete() ...
-
-}
-	  </pre>
+      </pre>
     </article>
     <footer class="source">Change notice: <a href="https://drupal.org/node/2064123">https://drupal.org/node/2064123</a></footer>
   </slide>
@@ -745,12 +760,12 @@ class TextItem extends TextItemBase {
       <h2>Entity Field API</h2>
     </hgroup>
     <article>
-	  <p>Field values are objects</p>
+      <p>Field values are objects</p>
       <pre class="prettyprint" data-lang="PHP">
 $node->field_tags instanceof FieldInterface
 $node->field_tags[0] instanceof FieldItemInterface
       </pre>
-	  <p>Improved Developer experience</p>
+      <p>Improved Developer experience</p>
       <pre class="prettyprint" data-lang="PHP">
 $node->body[LANGUAGE_NONE][0]['value']
          is now
@@ -784,12 +799,12 @@ $translation instanceof NodeInterface
       <h2>Computed fields</h2>
     </hgroup>
     <article class="biggest">
-	  <ul class="build">
-	    <li>Same concept as computed fields in Entity API for Drupal 7</li>
-	    <li>$comment->is_new->value</li>
-	    <li>class FieldNewValue computes it on access </li>
-	    <li>Computed fields can be defined via hook_entity_field_info() or hook_comment_field_info()</li>
-	  </ul>
+      <ul class="build">
+        <li>Same concept as computed fields in Entity API for Drupal 7</li>
+        <li>$comment->is_new->value</li>
+        <li>class FieldNewValue computes it on access </li>
+        <li>Computed fields can be defined via hook_entity_field_info() or hook_comment_field_info()</li>
+      </ul>
     </article>
   </slide>
 
@@ -846,9 +861,9 @@ $properties['title'] = array(
       <li>Field placehoders for defaults/examples</li>
       <li>Image field multiple uploads</li>
       <li>Drag & drop image upload support</li>
-	  <li>User picture is a field</li>
+      <li>User picture is a field</li>
       <li>Field translation sync</li>
-	  <li>More granular permissions on Field UI</li>
+      <li>More granular permissions on Field UI</li>
       </ul>
     </article>
   </slide>
