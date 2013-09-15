@@ -302,8 +302,8 @@ interface ConfigurableActionInterface extends ActionInterface {
           <ul>
             <li>Entity reference</li>
             <li>Date (and time)</li>
-            <li>Email</li>
-            <li>Telephone</li>
+            <li>Email & Telephone</li>
+            <li>Link</li>
           </ul>
         </li>
       </ul>
@@ -395,12 +395,12 @@ interface ConfigurableActionInterface extends ActionInterface {
       <h2>Fields & CMI</h2>
     </hgroup>
     <article class="flexbox vleft biggest">
-  	  <ul class="build">
-  	  	<li>Field & instance definitions: <b class="blue3">YAML files</b></li>
-  	  	<li><b class="blue3">Human readable</b> (no more serialised storage)</li>
-  	  	<li>Can be <b class="blue3">deployed</b> between environments</li>
-  	  	<li>Deleted fields and instances are <b class="blue3">kept in "state"</b> until data is purged</li>
-  	  </ul>
+      <ul class="build">
+        <li>Field & instance definitions: <b class="blue3">YAML files</b></li>
+        <li><b class="blue3">Human readable</b> (no more serialised storage)</li>
+        <li>Can be <b class="blue3">deployed</b> between environments</li>
+        <li>Deleted fields and instances are <b class="blue3">kept in "state"</b> until data is purged</li>
+      </ul>
     </article>
   </slide>
 
@@ -429,7 +429,7 @@ storage:
 locked: '0'
 cardinality: '1'
 translatable: '0'
-  	  </pre>
+      </pre>
     </article>
   </slide>
 
@@ -485,7 +485,7 @@ $field->save();
   'entity_type' => 'node',
   'bundle' => 'article',
 ))->save();
-	  </pre>
+    </pre>
     </article>
   </slide>
 
