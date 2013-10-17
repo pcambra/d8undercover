@@ -2,7 +2,7 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: "#drupalBrighton";
+$social-tags: "#drupalcampES";
 $brand-small-icon-height: 24px;
 $brand-small-icon-width: 24px;
 
@@ -176,7 +176,7 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/druplicon_128.png) no-repeat 0 50%;
+      background: url(../../images/belloticon_128.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-height $brand-small-icon-width);
       padding-left: $brand-small-icon-height + 10;
       height: $brand-small-icon-height;

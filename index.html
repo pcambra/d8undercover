@@ -1,11 +1,3 @@
-<!--
-Google IO 2012/2013 HTML5 Slide Template
-
-Authors: Eric Bidelman <ebidel@gmail.com>
-         Luke Mahé <lukem@google.com>
-
-URL: https://code.google.com/p/io-2012-slides
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +19,7 @@ URL: https://code.google.com/p/io-2012-slides
 <slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/druplicon.png"></aside>
+    <aside class="gdbar"><img src="images/belloticon.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -249,6 +241,22 @@ interface ConfigurableActionInterface extends ActionInterface {
 
   <slide>
     <hgroup>
+      <h2>PHP filter is gone</h2>
+      <h3>Aren't we feeling safer?</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul class="build">
+        <li>It might have been handy but at a <b class="blue3">high price</b></li>
+        <li><b class="blue3">Security & performance</b> could be easily compromised by non savy users</li>
+        <li>Upgrade between versions got harder as PHP code could have been <b class="blue3">ANYWHERE</b></li>
+        <li>For those risking it, there's a module for that! <a href="http://drupal.org/project/php">http://drupal.org/project/php</a></li>
+      </ul>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/1203886">https://drupal.org/node/1203886</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>& many more!</h2>
     </hgroup>
     <article class="bigger">
@@ -266,21 +274,6 @@ interface ConfigurableActionInterface extends ActionInterface {
     </article>
   </slide>
 
-  <slide>
-      <hgroup>
-          <h2>PHP filter is gone</h2>
-          <h3>Aren't we feeling safer?</h3>
-      </hgroup>
-      <article class="bigger">
-          <ul class="build">
-              <li>It might have been handy but at a <b class="blue3">high price</b></li>
-              <li><b class="blue3">Security & performance</b> could be easily compromised by non savy users</li>
-              <li>Upgrade between versions got harder as PHP code could have been <b class="blue3">ANYWHERE</b></li>
-              <li>For those risking it, there's a module for that! <a href="http://drupal.org/project/php">http://drupal.org/project/php</a></li>
-          </ul>
-      </article>
-      <footer class="source">More info: <a href="https://drupal.org/node/1203886">https://drupal.org/node/1203886</a></footer>
-  </slide>
 
   <slide class="nobackground">
     <article class="centered flexbox vleft auto-fadein">
@@ -342,7 +335,7 @@ interface ConfigurableActionInterface extends ActionInterface {
         <li>No attributes (so far)</li>
       </ul>
     </article>
-      <footer class="source">More info: <a href="https://drupal.org/node/501434">https://drupal.org/node/501434</a></footer>
+    <footer class="source">More info: <a href="https://drupal.org/node/501434">https://drupal.org/node/501434</a></footer>
   </slide>
 
   <slide>
@@ -385,6 +378,23 @@ interface ConfigurableActionInterface extends ActionInterface {
         </li>
       </ul>
     </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Comment as a field</h2>
+      <h3>Drupal 7: comment settings attached to node types and stored in variables</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul>
+        <li>Comment settings are now a field.</li>
+        <li>Attach comments to <b class="blue3">any entity type</b>.</li>
+        <li>Several comment fields per entity type.</li>
+        <li>"Reuse existing field" for alike comment configurations in different bundles.</li>
+        <li><b class="blue3">There will be an upgrade path!</b></li>
+      </ul>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/2100015">https://drupal.org/node/2100015</a></footer>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/tombstone.jpg)">
@@ -460,9 +470,9 @@ field_type: text_with_summary</b>
     </article>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/zebra.jpg)">
+  <slide class="fill nobackground" style="background-image: url(images/clowns.png)">
     <article class="centered flexbox vleft build">
-      <h2 class="white bg-read">Don't hack your active config!</h2>
+      <h2 class="white bg-read">Don't hack your active config, YO!</h2>
     </article>
   </slide>
 
@@ -705,7 +715,7 @@ class MyFormatter extends FormatterBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Field types</h2>
     </hgroup>
@@ -727,7 +737,7 @@ class TextItem extends TextItemBase {
   <slide>
     <hgroup>
       <h2>Everything is a field!</h2>
-      <h3>Fields former known as properties</h3>
+      <h3>Fields formerly known as properties</h3>
     </hgroup>
     <article class="biggest">
       <ul class="build">
@@ -755,7 +765,7 @@ class TextItem extends TextItemBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Entity Field API</h2>
     </hgroup>
