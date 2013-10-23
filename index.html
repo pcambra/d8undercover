@@ -28,6 +28,25 @@
     </hgroup>
   </slide>
 
+  <slide class="fill nobackground" style="background-image: url(images/path.jpg)">
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/background-logo.jpg)">
+    <hgroup>
+      <h2>About me</h2>
+    </hgroup>
+    <article>
+      <article class="flexbox vleft about-me">
+        <ul>
+          <li><b class="blue3">Drupal dreamer</b> at <a href="http://ymbra.com/">Ymbra</a></li>
+          <li>Hyperactive Drupal community member</li>
+          <li><b class="blue3">@pcambra</b> in twitter, drupal.org, IRC and mostly everywhere else</li>
+          <li><a href="mailto:pedro@ymbra.com">pedro@ymbra.com</a></li>
+        </ul>
+      </article>
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
@@ -164,14 +183,14 @@
       <h2>Bye bye module disable</h2>
       <h3>You won't be missed, will you?</h3>
     </hgroup>
-    <article>
+    <article class="bigger">
       <ul class="build">
-        <li>Disabling a module means disabling its interfaces (user/hooks/etc)</li>
-        <li>Data is kept as it was when the module was disabled: <b class="blue3">Data integrity risk</b></li>
+        <li>Disabling a module means disabling the interfaces</li>
+        <li><b class="blue3">Data integrity risk</b> when data is not up to date</li>
         <li>It worked well in the past, <b class="blue3">when life was simpler</b></li>
         <li>Removed module_disable() and enable/disable hooks</li>
-        <li>All installed modules are <b class="blue3">always installed/enabled</b> and always loaded</li>
-        <li>hook_modules_preinstall() will check and ensure uninstall consistency</li>
+        <li>All installed modules are <b class="blue3">always installed</b> and loaded</li>
+        <li>hook_modules_preinstall() will ensure uninstall consistency</li>
         <li><b class="blue3">Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
       </ul>
     </article>
@@ -241,18 +260,57 @@ interface ConfigurableActionInterface extends ActionInterface {
 
   <slide>
     <hgroup>
+      <h2>Menus as entities</h2>
+    </hgroup>
+    <article class="build biggest">
+      <ul>
+        <li>Menus are <b class="blue3">config entities</b> same as vocabularies</li>
+        <li>Menu links (items) are <b class="blue3">content entities</b></li>
+        <li>hook_menu() still exists but doesn't include any <b class="blue3">routing information</b></li>
+        <li>What you define in hook_menu() is stored as content entities (menu links)</li>
+      </ul>
+    </article>
+    <footer class="source">
+      More info: <a href="https://drupal.org/node/1888504">https://drupal.org/node/1888504</a> | <a href="https://drupal.org/node/1800686">https://drupal.org/node/1800686</a> | <a href="https://drupal.org/node/1914008">https://drupal.org/node/1914008</a>
+    </footer>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>PHP filter is gone</h2>
       <h3>Aren't we feeling safer?</h3>
     </hgroup>
-    <article class="bigger">
-      <ul class="build">
+    <article class="build bigger">
+      <ul>
         <li>It might have been handy but at a <b class="blue3">high price</b></li>
-        <li><b class="blue3">Security & performance</b> could be easily compromised by non savy users</li>
-        <li>Upgrade between versions got harder as PHP code could have been <b class="blue3">ANYWHERE</b></li>
-        <li>For those risking it, there's a module for that! <a href="http://drupal.org/project/php">http://drupal.org/project/php</a></li>
+        <li><b class="blue3">Security & performance</b> could be easily compromised by non savvy users</li>
+        <li>Upgrade between versions got harder as PHP code could have been <b class="biggest red">ANYWHERE</b></li>
+        <li>For those willing to take the risk, <a href="http://drupal.org/project/php">there's a module for that</a>!</li>
       </ul>
     </article>
     <footer class="source">More info: <a href="https://drupal.org/node/1203886">https://drupal.org/node/1203886</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>And this fellas too</h2>
+    </hgroup>
+    <article class="biggest flexbox vleft auto-fadein">
+      <div class="columns-2">
+        <ul>
+          <li>Profile</li>
+          <li>Blog</li>
+          <li>Trigger</li>
+          <li>Dashboard</li>
+        </ul>
+        <ul>
+          <li>OpenID</li>
+          <li>Poll</li>
+          <li>Garland</li>
+        </ul>
+      </div>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/2116417">https://drupal.org/node/2116417</a></footer>
   </slide>
 
   <slide>
@@ -261,15 +319,15 @@ interface ConfigurableActionInterface extends ActionInterface {
     </hgroup>
     <article class="bigger">
       <ul class="build">
-      <li>New directory structure</li>
-      <li>Class autoloader: PSR-0</li>
-      <li>Mongo DB support</li>
-      <li>Menus as entities</li>
-      <li>UX improvements on content creation</li>
-      <li>Style guide</li>
-      <li>Tour module</li>
-      <li>New install theme</li>
-      <li>Removed support for IE6-IE8</li>
+        <li>New directory structure</li>
+        <li>Class autoloader: PSR-0</li>
+        <li>Enhanced entity support for Mongo DB</li>
+        <li>UX improvements on content creation</li>
+        <li>Style guide</li>
+        <li>Tour module</li>
+        <li>New install theme</li>
+        <li>Removed support for IE6-IE8 (there's a <a href="https://drupal.org/project/ie8">module for that</a> too)</li>
+        <li>...</li>
       </ul>
     </article>
   </slide>
@@ -307,7 +365,7 @@ interface ConfigurableActionInterface extends ActionInterface {
     <hgroup>
       <h2>Entity reference</h2>
     </hgroup>
-    <article class="centered">
+    <article class="centered auto-fadein">
       <img src="images/entityreference.png">
     </article>
   </slide>
@@ -316,7 +374,7 @@ interface ConfigurableActionInterface extends ActionInterface {
     <hgroup>
       <h2>Date and time</h2>
     </hgroup>
-    <article class="centered">
+    <article class="centered auto-fadein">
       <img src="images/date.png">
     </article>
   </slide>
@@ -342,9 +400,9 @@ interface ConfigurableActionInterface extends ActionInterface {
     <hgroup>
       <h2>Email & telephone</h2>
     </hgroup>
-    <article class="flexbox vleft biggest">
+    <article class="flexbox vleft biggest build">
       <p><b class="blue3">Simplified version</b> of both email and telephone modules for Drupal 7</p>
-      <ul class="build">
+      <ul>
         <li>e-mail validation</li>
         <li>no anti-spam support</li>
         <li>tel:+32 123 321 123</li>
@@ -366,7 +424,6 @@ interface ConfigurableActionInterface extends ActionInterface {
     <br/>
     <article class="bigger">
       <ul class="build">
-        <li>Added by default on all widget types</li>
         <li>It is not a 'hidden' input type</li>
         <li>Renders nothing</li>
         <li>Preserves values when saving entity forms</li>
@@ -474,6 +531,7 @@ field_type: text_with_summary</b>
     <article class="centered flexbox vleft build">
       <h2 class="white bg-read">Don't hack your active config, YO!</h2>
     </article>
+    <footer class="source"><a href="http://www.flickr.com/photos/gfoster67/9991374276/sizes/k/in/photostream/">photo credit</a></footer>
   </slide>
 
   <slide>
@@ -523,11 +581,11 @@ hook_entity_delete()
 
   <slide>
     <hgroup>
-      <h2>Fields now bound to an entity type</h2>
+      <h2>Fields bound to an entity type</h2>
       <h3>Soft on the outside, tough on the inside</h3>
     </hgroup>
     <article class="bigger">
-      <ul class="build fade">
+      <ul class="build">
         <li>Fields are <b class="blue3">shareable between bundles</b> but <b class="blue3">attached to a specific entity type</b></li>
         <li>The entity handles the CRUD operation, <b class="blue3">field storage backends are gone</b></li>
         <li><b class="blue3">Fields can share name on different entity types</b>, but their settings are independent</li>
@@ -616,13 +674,15 @@ $options = $display->getComponent('field_image');
     <hgroup>
       <h2>Configurable form modes</h2>
     </hgroup>
-    <article class="centered flexbox vleft build fadein">
-      <q>
+    <article class="centered flexbox vleft build">
+      <div>
+        <q class="custom-font">
 If you aren't happy <br/>
 to see core adding form modes <br/>
 then we can’t be friends
-      </q>
-      <p><a href="http://twitter.com/drupalhaikus">@drupalhaikus</a></p>
+        </q>
+        <p><a href="http://twitter.com/drupalhaikus">@drupalhaikus</a></p>
+      </div>
     </article>
   </slide>
 
@@ -839,7 +899,7 @@ foreach ($entity as $field) {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Introducing TypedData</h2>
       <h3>Foundation of the new Entity API</h3>
@@ -883,7 +943,7 @@ $properties['title'] = array(
       <h2>In the dock!</h2>
       <h3>Without these people (and many more) this wouldn't have been possible</h3>
     </hgroup>
-    <article>
+    <article class="shorter">
       <div class="columns-3">
         <ul>
           <li class="no-bullet"><img class="portrait" src="images/swentel.png"><p><a href="https://drupal.org/user/107403">swentel</a></p></li>
@@ -897,12 +957,12 @@ $properties['title'] = array(
           <li class="no-bullet"><img class="portrait" src="images/fubhy.png"><p><a href="https://drupal.org/user/761344">fubhy</a></p></li>
           <li class="no-bullet"><img class="portrait" src="images/tim.png"><p><a href="https://drupal.org/user/241634">tim.plunkett</a></p></li>
         </ul>
-
+      </div>
     </article>
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/druplicon.png"></aside>
+    <aside class="gdbar right"><img src="images/belloticon.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>
