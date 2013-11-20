@@ -3,7 +3,7 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'Drupal 8: Undercover initiatives',
     //subtitle: 'Subtitle Goes Here',
-    eventTitle: 'Drupalcamp Spain 2013',
+    eventTitle: 'Drupal Camp North West 2013',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -23,7 +23,7 @@ var SLIDE_CONFIG = {
     company: 'Drupal dreamer at Ymbra',
 //    gplus: 'http://plus.google.com/1234567890',
     twitter: '@pcambra',
-    www: 'http://cambrico.net',
+    www: 'http://ymbra.com',
     drupal: 'http://drupal.org/user/122101'
   }/*, {
     name: 'Second Name',
