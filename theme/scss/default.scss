@@ -2,7 +2,7 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: "#dcnw13";
+$social-tags: "#DrupalcampLDN";
 $brand-small-icon-height: 24px;
 $brand-small-icon-width: 27px;
 
@@ -176,7 +176,7 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/nwdruplicon_128.png) no-repeat 0 50%;
+      background: url(../../images/dclondonlogo_128.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-height $brand-small-icon-width);
       padding-left: $brand-small-icon-height + 10;
       height: $brand-small-icon-height;
@@ -947,7 +947,7 @@ article.biggest {
 
 aside.gdbar {
   height: 180px;
-  width: 215px;
+  width: 265px;
   position: absolute;
   left: -1px;
   top: 125px;
@@ -975,7 +975,7 @@ aside.gdbar {
   }
 
   img {
-    width: 131px;
+    width: 185px;
     height: 150px;
     position: absolute;
     right: 0;

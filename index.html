@@ -19,7 +19,7 @@
 <slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/nwdruplicon.png"></aside>
+    <aside class="gdbar"><img src="images/dclondonlogo.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -62,7 +62,7 @@
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
       <h3>What's the status?</h3>
@@ -72,7 +72,7 @@
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
       <h3>Who's behind them?</h3>
@@ -198,7 +198,7 @@
     <footer class="source">More info: <a href="https://drupal.org/node/1883658">https://drupal.org/node/1883658</a> & <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a></footer>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Actions are now plugins!</h3>
@@ -215,7 +215,7 @@
     <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Example: action plugin interface</h3>
@@ -232,11 +232,11 @@ interface ConfigurableActionInterface extends ActionInterface {
   // Form submission handler.
   public function submit(array &$form, array &$form_state);
 }
-  	  </pre>
+      </pre>
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Example: configured action</h3>
@@ -311,6 +311,78 @@ interface ConfigurableActionInterface extends ActionInterface {
       </div>
     </article>
     <footer class="source">More info: <a href="https://drupal.org/node/2116417">https://drupal.org/node/2116417</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Migrate in core</h2>
+    </hgroup>
+    <article class="build biggest">
+      <ul>
+        <li>Upgrade path won't be created for Drupal 8</li>
+        <li>Only used for very simple use cases in the past</li>
+        <li>Migrations are the way to go, even for Drupal to Drupal</li>
+        <li>Migrate for Drupal 8 uses best practices and is testable</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>Migrate in core</h2>
+      <h3>We define everything in yaml now, baby</h3>
+    </hgroup>
+    <article class="smaller">
+      <p>migrate.migration.d6_user_role.yml</p>
+      <pre class="prettyprint" data-lang="yaml">
+id: d6_user_role
+source:
+  <b>plugin: d6_user_role</b>
+process:
+  id:
+    -
+      <b>plugin: machine_name</b>
+      source: name
+    -
+      plugin: dedupe_entity
+      entity_type: user_role
+      field: id
+    -
+      plugin: user_update_8002
+  label: name
+(...)
+destination:
+  <b>plugin: entity:user_role</b>
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Migrate in core</h2>
+      <h3>The process, source, destination & load systems are pluggable</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * This plugin creates a machine name.
+ *
+ * @MigrateProcessPlugin(
+ *   id = "machine_name"
+ * )
+ */
+class MachineName extends ProcessPluginBase {
+(...)
+
+  public function transform($value, MigrateExecutable $migrate_executable, Row $row, $destination_property) {
+    $new_value = $this->getTransliteration()->transliterate($value, Language::LANGCODE_DEFAULT, '_');
+    $new_value = strtolower($new_value);
+    $new_value = preg_replace('/[^a-z0-9_]+/', '_', $new_value);
+    return preg_replace('/_+/', '_', $new_value);
+  }
+      </pre>
+    </article>
+    <footer class="source">More info: <a href="http://webikon.com/cases/migrating-to-drupal-8">http://webikon.com/cases/migrating-to-drupal-8</a></footer>
   </slide>
 
   <slide>
@@ -448,7 +520,7 @@ interface ConfigurableActionInterface extends ActionInterface {
         <li>Attach comments to <b class="blue3">any entity type</b>.</li>
         <li>Several comment fields per entity type.</li>
         <li>"Reuse existing field" for alike comment configurations in different bundles.</li>
-        <li><b class="blue3">There will be an upgrade path!</b></li>
+        <li><b class="blue3">There will be a <del>upgrade path!</del> migrate path!</b></li>
       </ul>
     </article>
     <footer class="source">More info: <a href="https://drupal.org/node/2100015">https://drupal.org/node/2100015</a></footer>
@@ -579,7 +651,7 @@ hook_entity_delete()
     </article>
   </slide>
 
-  <slide>
+  <slide class="nobackground">
     <hgroup>
       <h2>Fields bound to an entity type</h2>
       <h3>Soft on the outside, tough on the inside</h3>
@@ -593,10 +665,10 @@ hook_entity_delete()
         <li>Field attach API parts are gone</li>
       </ul>
     </article>
-    <footer class="source">Change notice: <a href="https://drupal.org/node/2078765">https://drupal.org/node/2078765</a></footer>
+    <!--<footer class="source">Change notice: <a href="https://drupal.org/node/2078765">https://drupal.org/node/2078765</a></footer>-->
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>EntityDisplay</h2>
       <h3>Drupal 7: Display properties of entities are all over the place</h3>
@@ -794,7 +866,7 @@ class TextItem extends TextItemBase {
     <footer class="source">Change notice: <a href="https://drupal.org/node/2064123">https://drupal.org/node/2064123</a></footer>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Everything is a field!</h2>
       <h3>Fields formerly known as properties</h3>
@@ -809,7 +881,7 @@ class TextItem extends TextItemBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Everything is still being a field!</h2>
       <h3>Configurable fields</h3>
@@ -846,7 +918,7 @@ $node->body[0]->value
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Field translation</h2>
       <h3>It uses the default: $entity->language()</h3>
@@ -864,7 +936,7 @@ $translation instanceof NodeInterface
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Computed fields</h2>
     </hgroup>
@@ -929,16 +1001,17 @@ $properties['title'] = array(
     <article class="bigger">
       <ul class="build">
       <li>Field placehoders for defaults/examples</li>
+      <li>Support for computed fields</li>
       <li>Image field multiple uploads</li>
       <li>Drag & drop image upload support</li>
       <li>User picture is a field</li>
-      <li>Field translation sync</li>
+      <li>Field translation improvements</li>
       <li>More granular permissions on Field UI</li>
       </ul>
     </article>
   </slide>
 
-  <slide>
+  <slide class="nobackground">
     <hgroup>
       <h2>In the dock!</h2>
       <h3>Without these people (and many more) this wouldn't have been possible</h3>
@@ -962,7 +1035,7 @@ $properties['title'] = array(
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/nwdruplicon.png"></aside>
+    <aside class="gdbar right"><img src="images/dclondonlogo.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>
