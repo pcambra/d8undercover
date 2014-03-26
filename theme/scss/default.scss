@@ -2,8 +2,8 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: "#DrupalcampLDN";
-$brand-small-icon-height: 24px;
+$social-tags: "#drupaldevdays";
+$brand-small-icon-height: 27px;
 $brand-small-icon-width: 27px;
 
 $gray-1: #e6e6e6;
@@ -50,8 +50,6 @@ $article-content-top-padding: 25px;
   @include background(linear-gradient(white, white 85%, $gray-1));
   background-color: white;
 }
-
-
 
 /**
  * Theme Styles
@@ -176,7 +174,7 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/dclondonlogo_128.png) no-repeat 0 50%;
+      background: url(../../images/devdaysplanet.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-height $brand-small-icon-width);
       padding-left: $brand-small-icon-height + 10;
       height: $brand-small-icon-height;
@@ -965,6 +963,7 @@ aside.gdbar {
 
     img {
       @include transform(rotateZ(180deg));
+      margin: 20px 18px;
     }
   }
 
@@ -975,11 +974,11 @@ aside.gdbar {
   }
 
   img {
-    width: 185px;
+    width: 229px;
     height: 150px;
     position: absolute;
     right: 0;
-    margin: 10px 40px;
+    margin: 5px 18px;
   }
 }
 
@@ -993,18 +992,18 @@ aside.gdbar {
       font-family: 'SourceSansPro Regular', 'Open Sans', Arial, sans-serif;
       line-height: 1.4;
       letter-spacing: -3px;
-      color: $gray-4;
+      color: #FFF;
     }
 
     h2 {
       font-size: 34px;
-      color: $gray-2;
+      color: #FFF;
       font-weight: inherit;
     }
 
     p {
       font-size: 20px;
-      color: $gray-3;
+      color: #FFF;
       line-height: 1.3;
       margin-top: 2em;
     }

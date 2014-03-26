@@ -18,8 +18,8 @@
 
 <slides class="layout-widescreen">
 
-  <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/dclondonlogo.png"></aside>
+  <slide class="title-slide segue nobackground" style="background-image: url(images/devdayswithoutlogo.png)">
+    <aside class="gdbar"><img src="images/devdayslogo.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -62,7 +62,7 @@
     </article>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
       <h3>What's the status?</h3>
@@ -72,7 +72,7 @@
     </article>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
       <h3>Who's behind them?</h3>
@@ -194,11 +194,10 @@
         <li><b class="blue3">Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
       </ul>
     </article>
-
-    <footer class="source">More info: <a href="https://drupal.org/node/1883658">https://drupal.org/node/1883658</a> & <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a></footer>
+    <footer class="source">More info: <a href="https://drupal.org/node/1199946">https://drupal.org/node/1199946</a> | <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a> | <a href="https://drupal.org/node/2193013">https://drupal.org/node/2193013</a></footer>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Actions are now plugins!</h3>
@@ -215,28 +214,31 @@
     <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
       <h2>Actions API</h2>
-      <h3>Example: action plugin interface</h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="php">
-interface ConfigurableActionInterface extends ActionInterface {
-  // Returns this plugin's configuration.
+abstract class ConfigurableActionBase extends ActionBase
+        implements ConfigurablePluginInterface, PluginFormInterface {
+//
+interface ConfigurablePluginInterface {
   public function getConfiguration();
-  // Form constructor.
-  public function form(array $form, array &$form_state);
-  // Form validation handler.
-  public function validate(array &$form, array &$form_state);
-  // Form submission handler.
-  public function submit(array &$form, array &$form_state);
+  public function setConfiguration(array $configuration);
+  public function defaultConfiguration();
+}
+//
+interface PluginFormInterface {
+  public function buildConfigurationForm(array $form, array &$form_state);
+  public function validateConfigurationForm(array &$form, array &$form_state);
+  public function submitConfigurationForm(array &$form, array &$form_state);
 }
       </pre>
     </article>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Example: configured action</h3>
@@ -272,6 +274,22 @@ interface ConfigurableActionInterface extends ActionInterface {
     </article>
     <footer class="source">
       More info: <a href="https://drupal.org/node/1888504">https://drupal.org/node/1888504</a> | <a href="https://drupal.org/node/1800686">https://drupal.org/node/1800686</a> | <a href="https://drupal.org/node/1914008">https://drupal.org/node/1914008</a>
+    </footer>
+  </slide>
+
+  <slide>
+    <h2>Remember the 'good old times'...</h2>
+    <h3>When we needed to have a .module file?</h3>
+    <article class="build bigger">
+      <ul>
+        <li>.module & .profile files are <b class="blue3">optional</b> now</li>
+        <li>No need of <b class="blue3">empty .module or .profile</b> files anymore</li>
+        <li>Only <b class="blue3">procedural code</b> goes in the .module (i.e. hooks)</li>
+        <li>Modules discovered just by their info.yml file</li>
+      </ul>
+    </article>
+    <footer class="source">
+      More info: <a href="https://drupal.org/node/2217931">https://drupal.org/node/2217931</a>
     </footer>
   </slide>
 
@@ -319,9 +337,9 @@ interface ConfigurableActionInterface extends ActionInterface {
     </hgroup>
     <article class="build biggest">
       <ul>
-        <li>Upgrade path won't be created for Drupal 8</li>
+        <li><b class="blue3">Upgrade path</b> won't be created for Drupal 8</li>
         <li>Only used for very simple use cases in the past</li>
-        <li>Migrations are the way to go, even for Drupal to Drupal</li>
+        <li><b class="blue3">Migrations are the way to go</b>, even for Drupal to Drupal</li>
         <li>Migrate for Drupal 8 uses best practices and is testable</li>
       </ul>
     </article>
@@ -404,7 +422,6 @@ class MachineName extends ProcessPluginBase {
     </article>
   </slide>
 
-
   <slide class="nobackground">
     <article class="centered flexbox vleft auto-fadein">
       <h2 class="black">Now, let's talk about fields (& friends)</h2>
@@ -420,7 +437,6 @@ class MachineName extends ProcessPluginBase {
       <ul class="build">
         <li>New goodies for site builders. Out of the box</li>
         <li>Simplified ports of the equivalent Drupal 7 modules.</li>
-        <li><b class="blue3">Snowman</b> is coming to town!</li>
         <li>New field types:
           <ul>
             <li>Entity reference</li>
@@ -651,7 +667,7 @@ hook_entity_delete()
     </article>
   </slide>
 
-  <slide class="nobackground">
+  <slide class="nobackground" hidden>
     <hgroup>
       <h2>Fields bound to an entity type</h2>
       <h3>Soft on the outside, tough on the inside</h3>
@@ -688,7 +704,7 @@ hook_entity_delete()
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>EntityDisplay as a ConfigEntity</h2>
       <h3>entity.display.node.article.default.yml:</h3>
@@ -716,7 +732,7 @@ content:
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Using EntityDisplays in code</h2>
     </hgroup>
@@ -950,7 +966,7 @@ $translation instanceof NodeInterface
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Know your fields: Metadata</h2>
       <h3>Information about field, field items and field item values</h3>
@@ -1011,6 +1027,15 @@ $properties['title'] = array(
     </article>
   </slide>
 
+  <slide class="fill nobackground" style="background-image: url(images/devdayswithoutlogo.png)">
+    <article class="centered flexbox vleft">
+      <h2 class="white bg-read">D8 Field API: Fields reborn</h2>
+      <h3 class="white bg-read">by the man himself: Krisfof de Jaeger</h3>
+      <h3 class="white bg-read">"The Galaxy room", 1pm</h3>
+    </article>
+  </slide>
+
+
   <slide class="nobackground">
     <hgroup>
       <h2>In the dock!</h2>
@@ -1035,7 +1060,7 @@ $properties['title'] = array(
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/dclondonlogo.png"></aside>
+    <aside class="gdbar right"><img src="images/devdayslogo.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>
