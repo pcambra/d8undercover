@@ -2,9 +2,9 @@
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
 
-$social-tags: "#drupaldevdays";
-$brand-small-icon-height: 27px;
-$brand-small-icon-width: 27px;
+$social-tags: "#d8undercover";
+$brand-small-icon-height: 24px;
+$brand-small-icon-width: 24px;
 
 $gray-1: #e6e6e6;
 $gray-2: #a9a9a9;
@@ -174,7 +174,7 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/devdaysplanet.png) no-repeat 0 50%;
+      background: url(../../images/druplicon_128.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-height $brand-small-icon-width);
       padding-left: $brand-small-icon-height + 10;
       height: $brand-small-icon-height;
@@ -226,10 +226,6 @@ slides > slide {
       margin-bottom: 1em;
       line-height: 30px;
     }
-  }
-
-  > hgroup + article.shorter {
-    margin-top: $article-content-top-padding - 15px;
   }
 
   > article:only-child {
@@ -319,9 +315,8 @@ h1, h2, h3 {
 }
 
 h2 {
-  font-size: 75px;
-  font-family: 'SourceSansPro Regular', 'Open Sans', Arial, sans-serif;
-  line-height: 75px;
+  font-size: 60px;
+  line-height: 60px;
   letter-spacing: -2px;
   color: $gray-4;
 }
@@ -945,7 +940,7 @@ article.biggest {
 
 aside.gdbar {
   height: 180px;
-  width: 265px;
+  width: 215px;
   position: absolute;
   left: -1px;
   top: 125px;
@@ -963,7 +958,6 @@ aside.gdbar {
 
     img {
       @include transform(rotateZ(180deg));
-      margin: 20px 18px;
     }
   }
 
@@ -974,11 +968,11 @@ aside.gdbar {
   }
 
   img {
-    width: 229px;
+    width: 131px;
     height: 150px;
     position: absolute;
     right: 0;
-    margin: 5px 18px;
+    margin: 10px 40px;
   }
 }
 
@@ -1170,4 +1164,20 @@ aside.gdbar {
 
 .about-me {
   font-size: 55px;
+}
+
+.blink {
+    animation-duration: 1s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

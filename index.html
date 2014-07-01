@@ -18,8 +18,8 @@
 
 <slides class="layout-widescreen">
 
-  <slide class="title-slide segue nobackground" style="background-image: url(images/devdayswithoutlogo.png)">
-    <aside class="gdbar"><img src="images/devdayslogo.png"></aside>
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/druplicon.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -203,7 +203,7 @@
       <h3>Actions are now plugins!</h3>
     </hgroup>
     <article class="bigger">
-      <ul class="build fade">
+      <ul class="build">
         <li>Action module in Drupal 7 didn't add a lot of value</li>
         <li>Actions are now <b class="blue3">annotated plugins</b></li>
         <li>New <b class="blue3">configured actions</b> without user input: config entities</li>
@@ -214,7 +214,7 @@
     <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Actions API</h2>
     </hgroup>
@@ -238,7 +238,7 @@ interface PluginFormInterface {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Actions API</h2>
       <h3>Example: configured action</h3>
@@ -268,8 +268,8 @@ interface PluginFormInterface {
       <ul>
         <li>Menus are <b class="blue3">config entities</b> same as vocabularies</li>
         <li>Menu links (items) are <b class="blue3">content entities</b></li>
-        <li>hook_menu() still exists but doesn't include any <b class="blue3">routing information</b></li>
-        <li>What you define in hook_menu() is stored as content entities (menu links)</li>
+        <li>hook_menu() <b class="blue3">is gone</b></li>
+        <li>Menu module deprecated in favour of Menu UI</li>
       </ul>
     </article>
     <footer class="source">
@@ -278,12 +278,13 @@ interface PluginFormInterface {
   </slide>
 
   <slide>
-    <h2>Remember the 'good old times'...</h2>
-    <h3>When we needed to have a .module file?</h3>
-    <article class="build bigger">
+    <hgroup>
+      <h2>Remember the 'good old times'...</h2>
+      <h3>When we needed to have a .module file?</h3>
+    </hgroup>
+    <article class="build biggest">
       <ul>
         <li>.module & .profile files are <b class="blue3">optional</b> now</li>
-        <li>No need of <b class="blue3">empty .module or .profile</b> files anymore</li>
         <li>Only <b class="blue3">procedural code</b> goes in the .module (i.e. hooks)</li>
         <li>Modules discovered just by their info.yml file</li>
       </ul>
@@ -323,6 +324,7 @@ interface PluginFormInterface {
         </ul>
         <ul>
           <li>OpenID</li>
+          <li class="blink red">Overlay</li>
           <li>Poll</li>
           <li>Garland</li>
         </ul>
@@ -410,7 +412,7 @@ class MachineName extends ProcessPluginBase {
     <article class="bigger">
       <ul class="build">
         <li>New directory structure</li>
-        <li>Class autoloader: PSR-0</li>
+        <li>Class autoloader: <del>PSR-0</del> PSR-4</li>
         <li>Enhanced entity support for Mongo DB</li>
         <li>UX improvements on content creation</li>
         <li>Style guide</li>
@@ -562,28 +564,27 @@ class MachineName extends ProcessPluginBase {
   <slide>
     <hgroup>
       <h2>Field definition</h2>
-      <h3>field.field.body.yml</h3>
+      <h3>field.field.user.user_picture.yml</h3>
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="yaml">
-<b>id: body</b>
-<b>uuid: 7a39e1c1-9ed8-46a6-8c35-53603518dab9</b>
-status: '1'
+<b>id: user.user_picture</b>
+status: true
 langcode: en
-type: text_with_summary
-settings: {  }
-<b>module: text</b>
-active: '1'
-<b>entity_types:
-  - node</b>
-storage:
-  type: field_sql_storage
-  settings: {  }
-  module: field_sql_storage
-  active: '1'
-locked: '0'
-cardinality: '1'
-translatable: '0'
+name: user_picture
+<b>entity_type: user</b>
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    fid: null
+module: image
+cardinality: 1
+translatable: false
+<b>dependencies:
+  module:
+    - image
+    - user</b>
       </pre>
     </article>
   </slide>
@@ -591,33 +592,37 @@ translatable: '0'
   <slide>
     <hgroup>
       <h2>Field instance definition</h2>
-      <h3>field.node.article.body.yml</h3>
+      <h3>field.instance.user.user.user_picture.yml</h3>
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="yaml">
-<b>id: node.article.body</b>
-uuid: 12fa357f-45fb-4c58-b600-dbb984601811
-status: '1'
+<b>id: user.user.user_picture</b>
+status: true
 langcode: en
-<b>field_uuid: 7a39e1c1-9ed8-46a6-8c35-53603518dab9
-entity_type: node
-bundle: article</b>
-label: Body
-description: ''
-required: '1'
-default_value: ''
+<b>entity_type: user</b>
+<b>bundle: user</b>
+field_name: user_picture
+label: Picture
+description: 'Your virtual face or picture.'
+required: false
+default_value: {  }
 default_value_function: ''
-<b>settings:
-  text_processing: '1'
-  display_summary: '1'
-field_type: text_with_summary</b>
+settings:
+  file_extensions: 'png gif jpg jpeg'
+  file_directory: pictures
+  max_filesize: '30 KB'
+(..)
+field_type: image
+<b>dependencies:
+  entity:
+    - field.field.user.user_picture</b>
   	  </pre>
     </article>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/clowns.png)">
     <article class="centered flexbox vleft build">
-      <h2 class="white bg-read">Don't hack your active config, YO!</h2>
+      <h2 class="white bg-read">Active config is now in the database, PROBLEM?</h2>
     </article>
     <footer class="source"><a href="http://www.flickr.com/photos/gfoster67/9991374276/sizes/k/in/photostream/">photo credit</a></footer>
   </slide>
@@ -1027,15 +1032,6 @@ $properties['title'] = array(
     </article>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/devdayswithoutlogo.png)">
-    <article class="centered flexbox vleft">
-      <h2 class="white bg-read">D8 Field API: Fields reborn</h2>
-      <h3 class="white bg-read">by the man himself: Krisfof de Jaeger</h3>
-      <h3 class="white bg-read">"The Galaxy room", 1pm</h3>
-    </article>
-  </slide>
-
-
   <slide class="nobackground">
     <hgroup>
       <h2>In the dock!</h2>
@@ -1060,7 +1056,7 @@ $properties['title'] = array(
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/devdayslogo.png"></aside>
+    <aside class="gdbar right"><img src="images/druplicon.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>

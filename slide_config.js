@@ -3,7 +3,7 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'Drupal 8: Undercover initiatives',
     //subtitle: 'Subtitle Goes Here',
-    eventTitle: 'Drupal Developer Days Szeged 2014',
+    eventTitle: 'Oxford Drupal Users Group',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -34,4 +34,3 @@ var SLIDE_CONFIG = {
     github: 'http://github.com/you'
   }*/]
 };
-
