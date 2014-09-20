@@ -18,11 +18,9 @@
 
 <slides class="layout-widescreen">
 
-  <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/druplicon.png"></aside>
-    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <slide class="title-slide segue nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
     <hgroup class="auto-fadein">
-      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h1 data-config-title class="white"><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
     </hgroup>
@@ -31,33 +29,18 @@
   <slide class="fill nobackground" style="background-image: url(images/path.jpg)">
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/background-logo.jpg)">
-    <hgroup>
-      <h2>About me</h2>
-    </hgroup>
-    <article>
-      <article class="flexbox vleft about-me">
-        <ul>
-          <li><b class="blue3">Drupal dreamer</b> at <a href="http://ymbra.com/">Ymbra</a></li>
-          <li>Hyperactive Drupal community member</li>
-          <li><b class="blue3">@pcambra</b> in twitter, drupal.org, IRC and mostly everywhere else</li>
-          <li><a href="mailto:pedro@ymbra.com">pedro@ymbra.com</a></li>
-        </ul>
-      </article>
-    </article>
+  <slide class="fill nobackground" style="background-image: url(images/path.jpg)">
   </slide>
 
-  <slide>
+  <slide class="fill nobackground" style="background-image: url(images/background-logo.jpg)">
     <hgroup>
-      <h2>Drupal 8 initiatives</h2>
+      <h2>/me</h2>
     </hgroup>
-    <article class="biggest">
-      <ul class="build fade">
-        <li><b class="blue3">New</b> to Drupal 8</li>
-        <li><b class="blue3">Focus</b> on important topics</li>
-        <li>Initiative <b class="blue3">leaders</b> appointed by Dries</li>
-        <li>Organise better the community/volunteers: <b class="blue3">Birds of a feather flock together</b></li>
-        <li>Better <b class="blue3">visibility and reach</b></li>
+    <article class="flexbox vleft biggest extra-margin-top">
+      <ul>
+        <li><b class="blue3">Drupal dreamer</b> at <a href="http://ymbra.com/">Ymbra</a></li>
+        <li><b class="blue3">@pcambra</b> in the Internets</li>
+        <li>Coding and development track chair for DrupalCon Amsterdam</li>
       </ul>
     </article>
   </slide>
@@ -65,10 +48,14 @@
   <slide>
     <hgroup>
       <h2>Drupal 8 initiatives</h2>
-      <h3>What's the status?</h3>
     </hgroup>
-    <article class="centered">
-      <img src="images/initiatives.jpg" class="reflect">
+    <article class="biggest extra-margin-top">
+      <ul class="build fade">
+        <li><b class="blue3">New</b> to Drupal 8</li>
+        <li>Initiative <b class="blue3">leaders</b> appointed by Dries</li>
+        <li>Better <b class="blue3">focus, visibility and reach</b></li>
+        <li>Organise better the community effort: <b class="blue3">Birds of a feather flock together</b></li>
+      </ul>
     </article>
   </slide>
 
@@ -99,7 +86,7 @@
     </hgroup>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>WYSIWYG in core</h2>
     </hgroup>
@@ -108,10 +95,10 @@
     </article>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/toomuchwysiswyg.jpg)">
+  <slide hidden class="fill nobackground" style="background-image: url(images/toomuchwysiswyg.jpg)">
   </slide>
 
-  <slide>
+  <slide hidden>
     <article class="centered">
       <img src="images/inline_editing.jpg">
     </article>
@@ -169,129 +156,26 @@
     <footer class="source">Extra clean up will happen in this issue <a href="https://drupal.org/node/1972122">https://drupal.org/node/1972122</a></footer>
   </slide>
 
-  <slide class="nobackground">
-    <article class="centered flexbox vleft auto-fadein">
-      <h2 class="black">&quot;Disabled modules are <br/> broken beyond repair&quot;</h2>
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/ecce.jpg)">
-  </slide>
-
   <slide>
     <hgroup>
-      <h2>Bye bye module disable</h2>
-      <h3>You won't be missed, will you?</h3>
+      <h2>There's a "new" autoloader in town</h2>
+      <h3>Yes, the PSR-4 thing</h3>
     </hgroup>
-    <article class="bigger">
-      <ul class="build">
-        <li>Disabling a module means disabling the interfaces</li>
-        <li><b class="blue3">Data integrity risk</b> when data is not up to date</li>
-        <li>It worked well in the past, <b class="blue3">when life was simpler</b></li>
-        <li>Removed module_disable() and enable/disable hooks</li>
-        <li>All installed modules are <b class="blue3">always installed</b> and loaded</li>
-        <li>hook_modules_preinstall() will ensure uninstall consistency</li>
-        <li><b class="blue3">Oh wait</b>: Will be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
+    <article class="biggest">
+      <ul class="build fade">
+        <li><b class="blue3">Proposal for Standard Request</b></li>
+        <li>Updates PSR-0 with a simpler folder structure</li>
+        <li>Code discovery and loading made simple</li>
+        <li>This means no more files[] in the .info or obscure includes in the code</li>
       </ul>
     </article>
-    <footer class="source">More info: <a href="https://drupal.org/node/1199946">https://drupal.org/node/1199946</a> | <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a> | <a href="https://drupal.org/node/2193013">https://drupal.org/node/2193013</a></footer>
+    <footer class="source">More info: <a href="https://www.drupal.org/node/2246699">https://www.drupal.org/node/2246699</a></footer>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Actions API</h2>
-      <h3>Actions are now plugins!</h3>
-    </hgroup>
-    <article class="bigger">
-      <ul class="build">
-        <li>Action module in Drupal 7 didn't add a lot of value</li>
-        <li>Actions are now <b class="blue3">annotated plugins</b></li>
-        <li>New <b class="blue3">configured actions</b> without user input: config entities</li>
-        <li>Action module will become just a user interface</li>
-        <li>Simplified <b class="blue3">Views Bulk Operations in core</b>!</li>
-      </ul>
+  <slide class="fill nobackground" style="background-image: url(images/shrunk.jpg)">
+    <article class="centered flexbox vleft build">
+      <h2 class="white bg-read">Honey, we've shrunk "the Drupal"</h2>
     </article>
-    <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
-  </slide>
-
-  <slide hidden>
-    <hgroup>
-      <h2>Actions API</h2>
-    </hgroup>
-    <article>
-      <pre class="prettyprint" data-lang="php">
-abstract class ConfigurableActionBase extends ActionBase
-        implements ConfigurablePluginInterface, PluginFormInterface {
-//
-interface ConfigurablePluginInterface {
-  public function getConfiguration();
-  public function setConfiguration(array $configuration);
-  public function defaultConfiguration();
-}
-//
-interface PluginFormInterface {
-  public function buildConfigurationForm(array $form, array &$form_state);
-  public function validateConfigurationForm(array &$form, array &$form_state);
-  public function submitConfigurationForm(array &$form, array &$form_state);
-}
-      </pre>
-    </article>
-  </slide>
-
-  <slide hidden>
-    <hgroup>
-      <h2>Actions API</h2>
-      <h3>Example: configured action</h3>
-    </hgroup>
-    <article>
-      <pre class="prettyprint" data-lang="php">
-  $action = entity_create('action', array(
-    'id' => 'user_add_role_action.' . $role->id(),
-    'type' => 'user',
-    'label' => t('Add the @label role to the selected users',
-    	array('@label' => $role->label())),
-    'configuration' => array(
-      'rid' => $role->id(),
-    ),
-    'plugin' => 'user_add_role_action',
-  ));
-  $action->save();
-      </pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Menus as entities</h2>
-    </hgroup>
-    <article class="build biggest">
-      <ul>
-        <li>Menus are <b class="blue3">config entities</b> same as vocabularies</li>
-        <li>Menu links (items) are <b class="blue3">content entities</b></li>
-        <li>hook_menu() <b class="blue3">is gone</b></li>
-        <li>Menu module deprecated in favour of Menu UI</li>
-      </ul>
-    </article>
-    <footer class="source">
-      More info: <a href="https://drupal.org/node/1888504">https://drupal.org/node/1888504</a> | <a href="https://drupal.org/node/1800686">https://drupal.org/node/1800686</a> | <a href="https://drupal.org/node/1914008">https://drupal.org/node/1914008</a>
-    </footer>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Remember the 'good old times'...</h2>
-      <h3>When we needed to have a .module file?</h3>
-    </hgroup>
-    <article class="build biggest">
-      <ul>
-        <li>.module & .profile files are <b class="blue3">optional</b> now</li>
-        <li>Only <b class="blue3">procedural code</b> goes in the .module (i.e. hooks)</li>
-        <li>Modules discovered just by their info.yml file</li>
-      </ul>
-    </article>
-    <footer class="source">
-      More info: <a href="https://drupal.org/node/2217931">https://drupal.org/node/2217931</a>
-    </footer>
   </slide>
 
   <slide>
@@ -299,8 +183,8 @@ interface PluginFormInterface {
       <h2>PHP filter is gone</h2>
       <h3>Aren't we feeling safer?</h3>
     </hgroup>
-    <article class="build bigger">
-      <ul>
+    <article class="bigger">
+      <ul class="build fade">
         <li>It might have been handy but at a <b class="blue3">high price</b></li>
         <li><b class="blue3">Security & performance</b> could be easily compromised by non savvy users</li>
         <li>Upgrade between versions got harder as PHP code could have been <b class="biggest red">ANYWHERE</b></li>
@@ -333,14 +217,140 @@ interface PluginFormInterface {
     <footer class="source">More info: <a href="https://drupal.org/node/2116417">https://drupal.org/node/2116417</a></footer>
   </slide>
 
+  <slide class="nobackground">
+    <article class="centered flexbox vleft auto-fadein">
+      <h2 class="black">&quot;Disabled modules are <br/> broken beyond repair&quot;</h2>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/ecce.jpg)">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Bye bye module disable</h2>
+      <h3>You won't be missed, will you?</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul class="build">
+        <li>Disabling a module means disabling the interfaces</li>
+        <li><b class="blue3">Data integrity risk</b> when data is not up to date</li>
+        <li>It worked well in the past, <b class="blue3">when life was simpler</b></li>
+        <li>Removed module_disable() and enable/disable hooks</li>
+        <li>All installed modules are <b class="blue3">always installed</b> and loaded</li>
+        <li><b class="blue3">Oh wait</b>: Will there be a module for this? "<a href="https://drupal.org/project/disable_modules">Disable modules</a>"</li>
+      </ul>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/1199946">https://drupal.org/node/1199946</a> | <a href="https://drupal.org/node/2081873">https://drupal.org/node/2081873</a> | <a href="https://drupal.org/node/2193013">https://drupal.org/node/2193013</a></footer>
+  </slide>
+
+  <slide class="nobackground">
+    <article class="centered flexbox vleft auto-fadein">
+      <h2 class="black">Menu module is gone!</h2>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/gb_staypuft.jpg)">
+    <article class="centered flexbox vleft build">
+      <h2 class="white bg-read">But wait a second before panicking and running away!</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>The new (and shiny) menu system</h2>
+    </hgroup>
+    <article class="bigger extra-margin-top">
+      <ul>
+        <li><b class="blue3">Routes</b> are the starting point</li>
+        <li>There's a subsystem for each of the menu components</li>
+        <li><b class="blue3">Menu items, tabs, actions and contextual links</b> are defined in yml files</li>
+        <li><b class="blue3">Custom items</b> are created in the UI and have their own table</li>
+        <li>Two new modules: <b class="blue3">Menu UI</b> and <b class="blue3">Menu link content</b></li>
+      </ul>
+    </article>
+    <footer class="source">
+      More info: <a href="https://drupal.org/node/2122241">https://drupal.org/node/2122241</a>
+    </footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 class="blue3">Anatomy of a menu in Drupal 7</h2>
+    </hgroup>
+    <article class="bigger extra-margin-top">
+      <pre class="prettyprint">
+
+$items['admin/structure/types/manage/%node_type'] = array(
+  'title' => 'Edit content type',
+  'title callback' => 'node_type_page_title',
+  'title arguments' => array(4),
+  'page callback' => 'drupal_get_form',
+  'page arguments' => array('node_type_form', 4),
+  'access arguments' => array('administer content types'),
+  'file' => 'content_types.inc',
+  'type' => MENU_NORMAL,
+);
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 class="blue3">How routes are defined</h2>
+    </hgroup>
+    <article class="bigger extra-margin-top">
+      <ul>
+        <li>Routes are defined in a routing.yml file</li>
+        <li>Routes map the paths with the controllers</li>
+        <li>Access checks, wilcards, methods, etc are supported</li>
+      </ul>
+      <pre class="prettyprint" data-lang="node.routing.yml">
+entity.node_type.edit_form:
+  path: '/admin/structure/types/manage/{node_type}'
+  defaults:
+    _entity_form: 'node_type.edit'
+  requirements:
+    _permission: 'administer content types'
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 class="blue3">Different menu link types</h2>
+      <h3>Contextual, action, task and menu links</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul>
+        <li>Defined in yml files (i.e. node.links.task.yml)</li>
+        <li>Create menu elements rendered in the page</li>
+        <li><b class="blue3">Custom menu links</b> are also available as content entities</li>
+      </ul>
+      <pre class="prettyprint" data-lang="node.links.menu.yml">
+  node.overview_types:
+    title: 'Content types'
+    parent: system.admin_structure
+    description: 'Manage content types'
+    route_name: node.overview_types
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/blew-up-kid.jpg)">
+    <article class="centered flexbox vleft build">
+      <h2 class="white bg-read">Actually, "the Drupal" has grown larger than ever</h2>
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Migrate in core</h2>
     </hgroup>
-    <article class="build biggest">
-      <ul>
+    <article class="biggest">
+      <ul class="build fade">
         <li><b class="blue3">Upgrade path</b> won't be created for Drupal 8</li>
-        <li>Only used for very simple use cases in the past</li>
+        <li>Only useful for simple use cases in the past</li>
         <li><b class="blue3">Migrations are the way to go</b>, even for Drupal to Drupal</li>
         <li>Migrate for Drupal 8 uses best practices and is testable</li>
       </ul>
@@ -357,22 +367,22 @@ interface PluginFormInterface {
       <pre class="prettyprint" data-lang="yaml">
 id: d6_user_role
 source:
-  <b>plugin: d6_user_role</b>
+<b>plugin: d6_user_role</b>
 process:
-  id:
-    -
-      <b>plugin: machine_name</b>
-      source: name
-    -
-      plugin: dedupe_entity
-      entity_type: user_role
-      field: id
-    -
-      plugin: user_update_8002
-  label: name
+id:
+  -
+    <b>plugin: machine_name</b>
+    source: name
+  -
+    plugin: dedupe_entity
+    entity_type: user_role
+    field: id
+  -
+    plugin: user_update_8002
+label: name
 (...)
 destination:
-  <b>plugin: entity:user_role</b>
+<b>plugin: entity:user_role</b>
       </pre>
     </article>
   </slide>
@@ -385,27 +395,141 @@ destination:
     <article class="smaller">
       <pre class="prettyprint" data-lang="php">
 /**
- * This plugin creates a machine name.
- *
- * @MigrateProcessPlugin(
- *   id = "machine_name"
- * )
- */
+* This plugin creates a machine name.
+*
+* @MigrateProcessPlugin(
+*   id = "machine_name"
+* )
+*/
 class MachineName extends ProcessPluginBase {
 (...)
 
-  public function transform($value, MigrateExecutable $migrate_executable, Row $row, $destination_property) {
-    $new_value = $this->getTransliteration()->transliterate($value, Language::LANGCODE_DEFAULT, '_');
-    $new_value = strtolower($new_value);
-    $new_value = preg_replace('/[^a-z0-9_]+/', '_', $new_value);
-    return preg_replace('/_+/', '_', $new_value);
-  }
+public function transform($value, MigrateExecutable $migrate_executable, Row $row, $destination_property) {
+  $new_value = $this->getTransliteration()->transliterate($value, Language::LANGCODE_DEFAULT, '_');
+  $new_value = strtolower($new_value);
+  $new_value = preg_replace('/[^a-z0-9_]+/', '_', $new_value);
+  return preg_replace('/_+/', '_', $new_value);
+}
       </pre>
     </article>
     <footer class="source">More info: <a href="http://webikon.com/cases/migrating-to-drupal-8">http://webikon.com/cases/migrating-to-drupal-8</a></footer>
   </slide>
 
+  <slide class="fill nobackground" style="background-image: url(images/wait-wat.png)">
+    <article class="centered flexbox vleft build">
+      <h2 class="white bg-read">Wait... plugins?</h2>
+    </article>
+  </slide>
+
+  <slide class="nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
+    <article class="flexbox vleft">
+      <h2 class="centered white bg-read">An Overview of the Drupal 8 Plugin System</h2>
+      <p class="white bg-read">Joe Shindelar, Thursday · 10:45-11:45</p>
+    </article>
+  </slide>
+
   <slide>
+    <hgroup>
+      <h2>Actions API</h2>
+      <h3>Actions are now plugins!</h3>
+    </hgroup>
+    <article class="bigger">
+      <ul class="build">
+        <li>Action module in Drupal 7 didn't add a lot of value</li>
+        <li>Actions are now <b class="blue3">annotated plugins</b></li>
+        <li>New <b class="blue3">configured actions</b> without user input: config entities</li>
+        <li>Action module will become just a user interface</li>
+        <li>Simplified <b class="blue3">Views Bulk Operations in core</b>!</li>
+      </ul>
+    </article>
+    <footer class="source">More info: <a href="https://drupal.org/node/1846172">https://drupal.org/node/1846172</a></footer>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Actions API</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+abstract class ConfigurableActionBase extends ActionBase
+        implements ConfigurablePluginInterface, PluginFormInterface {
+//
+interface ConfigurablePluginInterface {
+  public function getConfiguration();
+  public function setConfiguration(array $configuration);
+  public function defaultConfiguration();
+}
+//
+interface PluginFormInterface {
+  public function buildConfigurationForm(array $form, array &$form_state);
+  public function validateConfigurationForm(array &$form, array &$form_state);
+  public function submitConfigurationForm(array &$form, array &$form_state);
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Actions API</h2>
+      <h3>Example: configured action</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+  $action = entity_create('action', array(
+    'id' => 'user_add_role_action.' . $role->id(),
+    'type' => 'user',
+    'label' => t('Add the @label role to the selected users',
+    	array('@label' => $role->label())),
+    'configuration' => array(
+      'rid' => $role->id(),
+    ),
+    'plugin' => 'user_add_role_action',
+  ));
+  $action->save();
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/wat-wait.png)">
+    <article class="centered flexbox vleft build">
+      <h2 class="white bg-read">Wait... config entities?</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 class="blue3">About configuration entities</h2>
+    </hgroup>
+    <article class="biggest extra-margin-top">
+      <ul>
+        <li>Share <b class="blue3">API</b> with content entities</li>
+        <li>Configuration system storage</li>
+        <li>Can be created on install by yml files</li>
+        <li>Normally user created</li>
+        <li>Not fieldable</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide hidden>
+    <hgroup>
+      <h2>Remember the 'good old times'...</h2>
+      <h3>When we needed to have a .module file?</h3>
+    </hgroup>
+    <article class="build biggest">
+      <ul>
+        <li>.module & .profile files are <b class="blue3">optional</b> now</li>
+        <li>Only <b class="blue3">procedural code</b> goes in the .module (i.e. hooks)</li>
+        <li>Modules discovered just by their info.yml file</li>
+      </ul>
+    </article>
+    <footer class="source">
+      More info: <a href="https://drupal.org/node/2217931">https://drupal.org/node/2217931</a>
+    </footer>
+  </slide>
+
+  <slide hidden>
     <hgroup>
       <h2>& many more!</h2>
     </hgroup>
@@ -432,7 +556,7 @@ class MachineName extends ProcessPluginBase {
 
   <slide>
     <hgroup>
-      <h2>New field types</h2>
+      <h2 class="blue3">New field types</h2>
       <h3>Making site builders happy</h3>
     </hgroup>
     <article class="bigger">
@@ -451,7 +575,7 @@ class MachineName extends ProcessPluginBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Entity reference</h2>
     </hgroup>
@@ -460,7 +584,7 @@ class MachineName extends ProcessPluginBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Date and time</h2>
     </hgroup>
@@ -469,7 +593,7 @@ class MachineName extends ProcessPluginBase {
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Link</h2>
     </hgroup>
@@ -486,7 +610,7 @@ class MachineName extends ProcessPluginBase {
     <footer class="source">More info: <a href="https://drupal.org/node/501434">https://drupal.org/node/501434</a></footer>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Email & telephone</h2>
     </hgroup>
@@ -501,10 +625,10 @@ class MachineName extends ProcessPluginBase {
   </slide>
 
 
-  <slide class="nobackground">
+  <slide hidden class="nobackground">
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>Hidden widget</h2>
     </hgroup>
@@ -763,7 +887,7 @@ $options = $display->getComponent('field_image');
     </article>
   </slide>
 
-  <slide class="nobackground">
+  <slide class="nobackground" hidden>
     <hgroup>
       <h2>Configurable form modes</h2>
     </hgroup>
@@ -779,7 +903,7 @@ then we can’t be friends
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <article>
       <iframe data-src="http://drupal8.local/admin/config/people/accounts/form-display"></iframe>
     </article>
@@ -1014,7 +1138,7 @@ $properties['title'] = array(
     </article>
   </slide>
 
-  <slide>
+  <slide hidden>
     <hgroup>
       <h2>There is even more!</h2>
       <h3>Other field api improvements</h3>
@@ -1029,6 +1153,13 @@ $properties['title'] = array(
       <li>Field translation improvements</li>
       <li>More granular permissions on Field UI</li>
       </ul>
+    </article>
+  </slide>
+
+  <slide class="nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
+    <article class="flexbox vleft">
+      <h2 class="centered white bg-read">Field API is dead. Long live Entity Field API!</h2>
+      <p class="white bg-read">Multiple stars, Thursday · 14:15-15:15</p>
     </article>
   </slide>
 
@@ -1055,7 +1186,20 @@ $properties['title'] = array(
     </article>
   </slide>
 
-  <slide class="thank-you-slide segue nobackground">
+  <slide class="fill nobackground" style="background-image: url(images/Drupal-Con-Amsterdam-Sprint-Slide.png)">
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
+    <article class="flexbox vleft auto-fadein">
+      <h2 class="white">&lt;Thank You!&gt;</h2>
+    </article>
+    <p class="thank-you-info auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+
+  <slide hidden class="thank-you-slide segue nobackground">
     <aside class="gdbar right"><img src="images/druplicon.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
