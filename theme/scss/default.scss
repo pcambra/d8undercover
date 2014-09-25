@@ -1170,6 +1170,10 @@ aside.gdbar {
   background-color: $gray-3;
   opacity: 0.9;
   padding: 15px;
+
+  a {
+    font-size: 75px;
+  }
 }
 
 .portrait {

@@ -29,7 +29,10 @@
   <slide class="fill nobackground" style="background-image: url(images/path.jpg)">
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/path.jpg)">
+  <slide class="fill nobackground" style="background-image: url(images/path_blur.jpg)">
+    <article class="centered flexbox vleft">
+      <h2 class="bg-read"><a class="white" href="http://bit.ly/d8undercover">http://bit.ly/d8undercover</a></h2>
+    </article>
   </slide>
 
   <slide class="fill nobackground" style="background-image: url(images/background-logo.jpg)">
@@ -140,20 +143,21 @@
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="twig">
-&lt;div{{ attributes }}&gt;
+&lt;div{{ attributes.addClass(classes) }}&gt;
   {{ title_prefix }}
   {% if label %}
     &lt;h2{{ title_attributes }}&gt;{{ label }}&lt;/h2&gt;
   {% endif %}
   {{ title_suffix }}
 
-  &lt;div{{ content_attributes }}&gt;
-    {{ content }}
+  &lt;div{{ content_attributes.addClass('content') }}&gt;
+    {% block content %}
+      {{ content }}
+    {% endblock %}
   &lt;/div&gt;
 &lt;/div&gt;
    	  </pre>
     </article>
-    <footer class="source">Extra clean up will happen in this issue <a href="https://drupal.org/node/1972122">https://drupal.org/node/1972122</a></footer>
   </slide>
 
   <slide>
@@ -161,8 +165,8 @@
       <h2>There's a "new" autoloader in town</h2>
       <h3>Yes, the PSR-4 thing</h3>
     </hgroup>
-    <article class="biggest">
-      <ul class="build fade">
+    <article class="biggest build">
+      <ul>
         <li><b class="blue3">Proposal for Standard Request</b></li>
         <li>Updates PSR-0 with a simpler folder structure</li>
         <li>Code discovery and loading made simple</li>
@@ -301,9 +305,9 @@ $items['admin/structure/types/manage/%node_type'] = array(
     </hgroup>
     <article class="bigger extra-margin-top">
       <ul>
-        <li>Routes are defined in a routing.yml file</li>
+        <li>Routes are defined in a &ltmodule_name&gt.routing.yml file</li>
         <li>Routes map the paths with the controllers</li>
-        <li>Access checks, wilcards, methods, etc are supported</li>
+        <li>Access checks, wildcards, methods, etc are supported</li>
       </ul>
       <pre class="prettyprint" data-lang="node.routing.yml">
 entity.node_type.edit_form:
@@ -349,7 +353,7 @@ entity.node_type.edit_form:
     </hgroup>
     <article class="biggest">
       <ul class="build fade">
-        <li><b class="blue3">Upgrade path</b> won't be created for Drupal 8</li>
+        <li><b class="blue3">Upgrade path</b> will be based in migrate</li>
         <li>Only useful for simple use cases in the past</li>
         <li><b class="blue3">Migrations are the way to go</b>, even for Drupal to Drupal</li>
         <li>Migrate for Drupal 8 uses best practices and is testable</li>
@@ -687,8 +691,8 @@ interface PluginFormInterface {
 
   <slide>
     <hgroup>
-      <h2>Field definition</h2>
-      <h3>field.field.user.user_picture.yml</h3>
+      <h2>Field (storage) definition</h2>
+      <h3>field.storage.user.user_picture.yml</h3>
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="yaml">
@@ -715,8 +719,8 @@ translatable: false
 
   <slide>
     <hgroup>
-      <h2>Field instance definition</h2>
-      <h3>field.instance.user.user.user_picture.yml</h3>
+      <h2>Field (instance) definition</h2>
+      <h3>field.field.user.user.user_picture.yml</h3>
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="yaml">
@@ -739,7 +743,7 @@ settings:
 field_type: image
 <b>dependencies:
   entity:
-    - field.field.user.user_picture</b>
+    - field.storage.user.user_picture</b>
   	  </pre>
     </article>
   </slide>
@@ -758,16 +762,16 @@ field_type: image
     <article>
       <p>Drupal 7 has field_create_field(), field_create_instance(), update, delete and dozens of other field API crud functions and hooks.</p>
       <pre class="prettyprint" data-lang="Drupal 8">
-<b>$field = entity_create('field_entity', array(</b>
+<b>$field_storage = entity_create('field_storage_config', array(</b>
   'entity_type' => 'node',
-  'id' => 'field_image',
+  'name' => 'field_image',
   'type' => 'image',
-  'cardinality' => 1,
 ));
 $field->save();
-<b>entity_create('field_instance', array(</b>
-  'field_id' => 'field_image',
+<b>entity_create('field_config', array(</b>
+  'field_name' => 'field_image',
   'entity_type' => 'node',
+  'label' => 'Image',
   'bundle' => 'article',
 ))->save();
     </pre>
@@ -781,7 +785,7 @@ $field->save();
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="PHP">
-$field = entity_load('field_image');
+$field = entity_load('field_config', 'node.article.field_image');
 $field->cardinality = 3;
 $field->settings['foo'] = 'bar';
 <b>$field->save();
@@ -789,7 +793,7 @@ $field->settings['foo'] = 'bar';
 $field->delete();</b>
 
 +
-hook_entity_save()
+hook_entity_presave()
 hook_entity_delete()
 ...
       </pre>
@@ -937,14 +941,11 @@ then we can’t be friends
     <article>
       <pre class="prettyprint" data-lang="PHP">
 /**
- * @Widget(
+ * @FieldWidget(
  *   id = "mymodule_widget",
  *   label = @Translation("My awesome widget"),
  *   <b>field_types = {
  *     "text"
- *   },
- *   settings = {
- *     "some_setting" = "Some default value"
  *   }</b>
  * )
  */
@@ -1192,6 +1193,7 @@ $properties['title'] = array(
   <slide class="thank-you-slide segue nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
     <article class="flexbox vleft auto-fadein">
       <h2 class="white">&lt;Thank You!&gt;</h2>
+      <h3 class="blue">Please rate this session in: <a class="white" href="http://bit.ly/rate-d8undercover">http://bit.ly/rate-d8undercover</a></h2>
     </article>
     <p class="thank-you-info auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
