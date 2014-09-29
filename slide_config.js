@@ -20,7 +20,7 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Pedro Cambra',
-    company: 'Drupal dreamer at Ymbra',
+    //company: 'Drupal dreamer at Ymbra',
 //    gplus: 'http://plus.google.com/1234567890',
     twitter: '@pcambra',
     www: 'http://ymbra.com',

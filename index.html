@@ -748,11 +748,58 @@ field_type: image
     </article>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/clowns.png)">
+  <slide>
+    <hgroup>
+      <h2>Just yesterday...</h2>
+    </hgroup>
+    <article class="centered auto-fadein">
+      <img src="images/alexpott_tweet.jpg">
+    </article>
+  </slide>
+
+<slide>
+  <hgroup>
+    <h2>Field (instance) definition</h2>
+    <h3>field.field.user.user.user_picture.yml</h3>
+  </hgroup>
+  <article class="smaller">
+    <pre class="prettyprint" data-lang="yaml">
+<b>id: user.user.user_picture</b>
+status: true
+langcode: en
+<b>entity_type: user</b>
+<b>bundle: user</b>
+<del>field_name: user_picture</del> <span class="build"><b>name: user_picture</b></span>
+label: Picture
+description: 'Your virtual face or picture.'
+required: false
+default_value: {  }
+default_value_function: ''
+settings:
+file_extensions: 'png gif jpg jpeg'
+file_directory: pictures
+max_filesize: '30 KB'
+(..)
+field_type: image
+<b>dependencies:
+entity:
+  - field.storage.user.user_picture</b>
+    </pre>
+  </article>
+</slide>
+
+  <slide hidden class="fill nobackground" style="background-image: url(images/clowns.png)">
     <article class="centered flexbox vleft build">
       <h2 class="white bg-read">Active config is now in the database, PROBLEM?</h2>
     </article>
     <footer class="source"><a href="http://www.flickr.com/photos/gfoster67/9991374276/sizes/k/in/photostream/">photo credit</a></footer>
+  </slide>
+
+  <slide class="nobackground" style="background: url(images/ams-template2.png) no-repeat center;">
+    <article class="flexbox vleft">
+      <h2 class="centered white bg-read">Drupal 8 CMI on Managed Workflow</h2>
+      <p class="white bg-read">Matt Cheney, David Strauss, Wednesday · 13:00-14:00</p>
+    </article>
   </slide>
 
   <slide>
